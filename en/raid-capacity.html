@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAID Capacity Calculation Guide | RAID 0/1/5/6/10 Explained</title>
+  <meta name="description" content="Learn how to calculate RAID capacity for RAID 0, 1, 5, 6, and 10. This beginner-friendly guide explains usable capacity formulas and examples." />
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <p class="lang-switch">
+    🌍 <a href="../raid-capacity.html">日本語はこちら</a>
+  </p>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="tool.html">Calculator</a>
+    <a href="what-is-raid.html">What Is RAID?</a>
+    <a href="../index.html">Japanese</a>
+  </nav>
+
+  <h1>RAID Capacity Calculation Guide</h1>
+
+  <p>
+    The usable capacity of a RAID array depends on the RAID level, the number of disks,
+    and the size of each disk. This page explains how to calculate RAID capacity for
+    RAID 0, RAID 1, RAID 5, RAID 6, and RAID 10 in a simple way.
+  </p>
+
+  <p>
+    If you want to understand the basics first, see
+    <a href="what-is-raid.html">What Is RAID?</a>.
+  </p>
+
+  <div class="card">
+    <h2>RAID Capacity Basics</h2>
+    <p>
+      In RAID, not all raw disk capacity is always available for storing data.
+      Some RAID levels use part of the total capacity for mirroring or parity,
+      which reduces usable capacity but improves redundancy.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>RAID 0 Capacity</h2>
+    <p>
+      RAID 0 uses all disk capacity for data.
+    </p>
+    <p><strong>Formula:</strong> Number of disks × Disk size</p>
+    <p><strong>Example:</strong> 4 disks × 8TB = 32TB usable</p>
+  </div>
+
+  <div class="card">
+    <h2>RAID 1 Capacity</h2>
+    <p>
+      RAID 1 mirrors data, so the usable capacity is equal to one disk.
+    </p>
+    <p><strong>Formula:</strong> Capacity of one disk</p>
+    <p><strong>Example:</strong> 2 disks × 8TB = 8TB usable</p>
+  </div>
+
+  <div class="card">
+    <h2>RAID 5 Capacity</h2>
+    <p>
+      RAID 5 uses the capacity of one disk for parity.
+    </p>
+    <p><strong>Formula:</strong> (Number of disks - 1) × Disk size</p>
+    <p><strong>Example:</strong> 4 disks × 8TB = 24TB usable</p>
+  </div>
+
+  <div class="card">
+    <h2>RAID 6 Capacity</h2>
+    <p>
+      RAID 6 uses the capacity of two disks for parity.
+    </p>
+    <p><strong>Formula:</strong> (Number of disks - 2) × Disk size</p>
+    <p><strong>Example:</strong> 4 disks × 8TB = 16TB usable</p>
+  </div>
+
+  <div class="card">
+    <h2>RAID 10 Capacity</h2>
+    <p>
+      RAID 10 combines mirroring and striping, so usable capacity is half of the total.
+    </p>
+    <p><strong>Formula:</strong> (Number of disks / 2) × Disk size</p>
+    <p><strong>Example:</strong> 4 disks × 8TB = 16TB usable</p>
+  </div>
+
+  <div class="card">
+    <h2>Quick Comparison</h2>
+    <ul>
+      <li><strong>RAID 0:</strong> Maximum capacity, no redundancy</li>
+      <li><strong>RAID 1:</strong> High redundancy, low capacity efficiency</li>
+      <li><strong>RAID 5:</strong> Good balance of capacity and redundancy</li>
+      <li><strong>RAID 6:</strong> Better fault tolerance, lower usable capacity</li>
+      <li><strong>RAID 10:</strong> Good performance and redundancy, needs more disks</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Example: 4 × 8TB Disks</h2>
+    <ul>
+      <li>RAID 0 → 32TB</li>
+      <li>RAID 1 → 8TB</li>
+      <li>RAID 5 → 24TB</li>
+      <li>RAID 6 → 16TB</li>
+      <li>RAID 10 → 16TB</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Calculate RAID Capacity Instantly</h2>
+    <p>
+      If you want to calculate usable capacity quickly, use the tool below.
+    </p>
+    <p>
+      <a href="tool.html"><strong>Use the RAID Capacity Calculator</strong></a>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Important Notes</h2>
+    <ul>
+      <li>This assumes all disks have the same capacity.</li>
+      <li>Actual usable space may be slightly smaller because of formatting and filesystem overhead.</li>
+      <li>RAID is not a backup.</li>
+    </ul>
+  </div>
+
+  <p>
+    <a href="index.html">← Back to Home</a>
+  </p>
+
+</body>
+</html>

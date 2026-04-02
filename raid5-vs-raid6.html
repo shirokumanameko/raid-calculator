@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAID 5とRAID 6の違い｜どっちを選ぶべきか解説</title>
+  <meta name="description" content="RAID 5とRAID 6の違いを初心者向けに解説。容量、速度、耐障害性の違いとおすすめの選び方を紹介します。" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">ホーム</a>
+  <a href="tool.html">計算ツール</a>
+  <a href="what-is-raid.html">RAIDとは？</a>
+</nav>
+
+<h1>RAID 5とRAID 6の違い｜どっちを選ぶべき？</h1>
+
+<p>
+RAID 5とRAID 6は、NASやサーバーでよく使われるRAID構成です。
+どちらも冗長性を持っていますが、性能や安全性に違いがあります。
+</p>
+
+<div class="card">
+  <h2>基本的な違い</h2>
+  <ul>
+    <li><strong>RAID 5:</strong> 1台のディスク故障まで耐えられる</li>
+    <li><strong>RAID 6:</strong> 2台のディスク故障まで耐えられる</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>容量の違い</h2>
+  <ul>
+    <li>RAID 5 → (ディスク数 - 1) × 容量</li>
+    <li>RAID 6 → (ディスク数 - 2) × 容量</li>
+  </ul>
+  <p>
+    詳しくは <a href="raid-capacity.html">RAID容量の計算方法</a> をご覧ください。
+  </p>
+</div>
+
+<div class="card">
+  <h2>性能の違い</h2>
+  <p>
+    RAID 5はパリティが1つなので書き込みが比較的速いです。
+    RAID 6は安全性が高い代わりに、書き込み性能はやや低下します。
+  </p>
+</div>
+
+<div class="card">
+  <h2>どちらを選ぶべき？</h2>
+  <ul>
+    <li>容量重視 → RAID 5</li>
+    <li>安全性重視 → RAID 6</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>ツールで確認する</h2>
+  <p>
+    RAID容量をすぐ確認したい場合は、以下のツールを使ってください。
+  </p>
+  <a href="tool.html"><strong>RAID容量計算ツールを使う</strong></a>
+</div>
+
+</body>
+</html>

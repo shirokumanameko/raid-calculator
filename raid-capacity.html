@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAID容量 計算方法｜RAID 0/1/5/6/10の使用可能容量を解説</title>
+  <meta name="description" content="RAID容量の計算方法を初心者向けに解説。RAID 0, 1, 5, 6, 10の使用可能容量の求め方と具体例を紹介します。" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a href="index.html">ホーム</a>
+  <a href="tool.html">計算ツール</a>
+  <a href="what-is-raid.html">RAIDとは？</a>
+</nav>
+
+<h1>RAID容量の計算方法｜RAID別にわかりやすく解説</h1>
+
+<p>
+RAIDの使用可能容量は、RAIDレベルによって大きく異なります。
+この記事では、RAID 0 / 1 / 5 / 6 / 10 の容量計算方法を初心者向けにわかりやすく解説します。
+</p>
+
+<p>
+  RAIDの基本を知りたい方は、
+  <a href="what-is-raid.html">RAIDとは？</a>の解説も参考にしてください。
+</p>
+
+<div class="card">
+  <h2>RAID容量の基本</h2>
+  <p>
+RAIDでは、すべてのディスク容量がそのまま使えるわけではありません。
+RAIDレベルによっては、冗長性（パリティやミラー）に容量が使われます。
+  </p>
+</div>
+
+<div class="card">
+  <h2>RAID 0 の容量</h2>
+  <p>すべてのディスク容量をそのまま利用できます。</p>
+  <p><strong>計算式：</strong> ディスク数 × 容量</p>
+</div>
+
+<div class="card">
+  <h2>RAID 1 の容量</h2>
+  <p>ミラーリングのため、1台分の容量しか使えません。</p>
+  <p><strong>計算式：</strong> 1台分の容量</p>
+</div>
+
+<div class="card">
+  <h2>RAID 5 の容量</h2>
+  <p>1台分の容量がパリティに使われます。</p>
+  <p><strong>計算式：</strong> (ディスク数 - 1) × 容量</p>
+</div>
+
+<div class="card">
+  <h2>RAID 6 の容量</h2>
+  <p>2台分の容量がパリティに使われます。</p>
+  <p><strong>計算式：</strong> (ディスク数 - 2) × 容量</p>
+</div>
+
+<div class="card">
+  <h2>RAID 10 の容量</h2>
+  <p>ミラー構成のため、半分の容量になります。</p>
+  <p><strong>計算式：</strong> (ディスク数 / 2) × 容量</p>
+</div>
+
+<div class="card">
+  <h2>具体例</h2>
+  <p>
+8TBのディスクを4台使った場合：
+  </p>
+  <ul>
+    <li>RAID 0 → 32TB</li>
+    <li>RAID 1 → 8TB</li>
+    <li>RAID 5 → 24TB</li>
+    <li>RAID 6 → 16TB</li>
+    <li>RAID 10 → 16TB</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>RAID容量を簡単に計算する</h2>
+  <p>
+手動で計算するのが面倒な場合は、以下のツールを使うとすぐに確認できます。
+  </p>
+  <p>
+    <a href="tool.html"><strong>RAID容量計算ツールを使う</strong></a>
+  </p>
+</div>
+
+<div class="card">
+  <h2>よくある注意点</h2>
+  <ul>
+    <li>ディスク容量は同じものを使う前提</li>
+    <li>実際の容量は少し減る（フォーマットなど）</li>
+    <li>RAIDはバックアップではない</li>
+  </ul>
+</div>
+
+<p>
+<a href="index.html">← ホームに戻る</a>
+</p>
+
+</body>
+</html>
