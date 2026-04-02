@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAID Capacity Calculator | RAID 0/1/5/6/10 (Free Online Tool)</title>
+  <meta name="description" content="Calculate usable RAID capacity instantly. Supports RAID 0, 1, 5, 6, and 10. Free and easy-to-use online calculator." />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 14px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 16px;
+      background: #f7f7f7;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+    .note {
+      font-size: 14px;
+      color: #555;
+      margin-top: 12px;
+    }
+    .error {
+      color: #c62828;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>RAID Capacity Calculator</h1>
+  <p>Enter disk count, disk size, and RAID level to calculate usable capacity instantly.</p>
+
+  <div class="card">
+    <label for="raidType">RAID Type</label>
+    <select id="raidType">
+      <option value="0">RAID 0</option>
+      <option value="1">RAID 1</option>
+      <option value="5">RAID 5</option>
+      <option value="6">RAID 6</option>
+      <option value="10">RAID 10</option>
+    </select>
+
+    <label for="diskCount">Number of Disks</label>
+    <input type="number" id="diskCount" min="1" value="4" />
+
+    <label for="diskSize">Disk Size (TB)</label>
+    <input type="number" id="diskSize" min="0.1" step="0.1" value="8" />
+
+    <button onclick="calculateRaid()">Calculate</button>
+
+    <div id="message" class="error"></div>
+    <div id="result" class="result" style="display:none;"></div>
+    <div class="note">
+      * Assumes identical disk sizes.<br>
+      * Actual usable capacity may vary slightly.
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>How RAID Capacity is Calculated</h2>
+    <ul>
+      <li><strong>RAID 0:</strong> Total capacity of all disks</li>
+      <li><strong>RAID 1:</strong> Capacity of one disk</li>
+      <li><strong>RAID 5:</strong> (N - 1) × disk size</li>
+      <li><strong>RAID 6:</strong> (N - 2) × disk size</li>
+      <li><strong>RAID 10:</strong> (N / 2) × disk size</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Important Note</h2>
+    <p>
+      RAID is not a backup solution. It protects against disk failure,
+      but not against accidental deletion, malware, or disasters.
+    </p>
+  </div>
+
+  <script>
+    function calculateRaid() {
+      const raidType = document.getElementById("raidType").value;
+      const diskCount = parseInt(document.getElementById("diskCount").value, 10);
+      const diskSize = parseFloat(document.getElementById("diskSize").value);
+
+      const messageEl = document.getElementById("message");
+      const resultEl = document.getElementById("result");
+
+      messageEl.textContent = "";
+      resultEl.style.display = "none";
+
+      if (isNaN(diskCount) || isNaN(diskSize) || diskCount <= 0 || diskSize <= 0) {
+        messageEl.textContent = "Please enter valid values.";
+        return;
+      }
+
+      let usable = 0;
+
+      if (raidType === "0") {
+        usable = diskCount * diskSize;
+      } else if (raidType === "1") {
+        if (diskCount < 2) {
+          messageEl.textContent = "RAID 1 requires at least 2 disks.";
+          return;
+        }
+        usable = diskSize;
+      } else if (raidType === "5") {
+        if (diskCount < 3) {
+          messageEl.textContent = "RAID 5 requires at least 3 disks.";
+          return;
+        }
+        usable = (diskCount - 1) * diskSize;
+      } else if (raidType === "6") {
+        if (diskCount < 4) {
+          messageEl.textContent = "RAID 6 requires at least 4 disks.";
+          return;
+        }
+        usable = (diskCount - 2) * diskSize;
+      } else if (raidType === "10") {
+        if (diskCount < 4 || diskCount % 2 !== 0) {
+          messageEl.textContent = "RAID 10 requires an even number of disks (minimum 4).";
+          return;
+        }
+        usable = (diskCount / 2) * diskSize;
+      }
+
+      resultEl.style.display = "block";
+      resultEl.innerHTML = `Usable capacity: <strong>${usable.toFixed(2)} TB</strong>`;
+    }
+  </script>
+</body>
+</html>
