@@ -3,169 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What Is RAID? A Beginner-Friendly Guide to How RAID Works</title>
-  <meta name="description" content="Learn what RAID is in simple terms. This beginner-friendly guide explains RAID 0, 1, 5, 6, and 10, including their pros, cons, and best use cases." />
-  <style>
-    /* ===== Base ===== */
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      max-width: 760px;
-      margin: 40px auto;
-      padding: 0 16px;
-      line-height: 1.7;
-      background: #f5f7fb;
-      color: #1f2937;
-    }
-
-    /* ===== Header / Nav ===== */
-    nav {
-      margin: 12px 0 20px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    nav a {
-      margin-right: 16px;
-      color: #2563eb;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== Typography ===== */
-    h1 {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      margin-top: 28px;
-      font-size: 22px;
-      border-left: 4px solid #2563eb;
-      padding-left: 10px;
-    }
-
-    h3 {
-      margin-top: 20px;
-      font-size: 18px;
-    }
-
-    /* ===== Card ===== */
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 22px;
-      margin-top: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-    }
-
-    /* ===== Form ===== */
-    label {
-      display: block;
-      margin-top: 14px;
-      font-weight: 600;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #d1d5db;
-      box-sizing: border-box;
-    }
-
-    /* ===== Button ===== */
-    button {
-      width: 100%;
-      margin-top: 20px;
-      padding: 12px;
-      font-size: 16px;
-      font-weight: bold;
-      background: #2563eb;
-      color: #ffffff;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #1d4ed8;
-    }
-
-    /* ===== Result ===== */
-    .result {
-      margin-top: 20px;
-      padding: 20px;
-      background: #eef2ff;
-      border-radius: 10px;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    /* ===== Message ===== */
-    .error {
-      color: #dc2626;
-      font-weight: bold;
-      margin-top: 12px;
-    }
-
-    /* ===== Note ===== */
-    .note {
-      font-size: 14px;
-      color: #6b7280;
-      margin-top: 12px;
-    }
-
-    /* ===== Links ===== */
-    a {
-      color: #2563eb;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== Language Switch ===== */
-    .lang-switch {
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-  </style>
+  <title>What Is RAID? Types, Differences, and How to Choose</title>
+  <meta name="description" content="Learn what RAID is in a simple way. Understand RAID 0, 1, 5, 6, and 10, their differences, advantages, and how to choose the right RAID setup." />
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <p><a href="../what-is-raid.html">日本語版はこちら</a></p>
+
+  <p class="lang-switch">
+    🌍 <a href="../what-is-raid.html">日本語はこちら</a>
+  </p>
+
+  <nav>
+    <a href="../index.html">日本語</a>
+    <a href="index.html">Home</a>
+    <a href="tool.html">Calculator</a>
+    <a href="what-is-raid.html">What is RAID?</a>
+  </nav>
 
   <h1>What Is RAID? A Beginner-Friendly Guide</h1>
+
   <p>
-    RAID is a way to use multiple drives together to improve storage capacity, speed, and fault tolerance.
-    It is commonly used in NAS systems, servers, and custom-built PCs.
+    RAID is a technology that combines multiple disks to improve capacity,
+    performance, and fault tolerance. It is commonly used in NAS systems,
+    servers, and custom-built PCs.
   </p>
 
   <p>
-    🔢 <a href="index.html">RAID Capacity Calculator</a><br>
-    🌍 <a href="../index.html">Japanese version of the RAID calculator</a>
+    🔢 <a href="tool.html">Try the RAID Capacity Calculator</a><br>
+    🌍 <a href="../tool.html">日本語版の計算ツールはこちら</a>
   </p>
 
   <div class="card">
     <h2>What Is RAID?</h2>
     <p>
-      RAID stands for "Redundant Array of Independent Disks." It is a technology that combines multiple HDDs or SSDs into a single logical unit.
-      Depending on the RAID level, it can increase storage capacity, improve read/write speed, and provide protection against drive failure.
+      RAID stands for "Redundant Array of Independent Disks".
+      It allows multiple HDDs or SSDs to be treated as a single storage system.
+      With RAID, you can increase capacity, improve read/write performance,
+      and enhance data protection against disk failures.
     </p>
   </div>
 
   <div class="card">
     <h2>Why Use RAID?</h2>
     <ul>
-      <li><strong>More capacity:</strong> Combine multiple drives into one larger storage space</li>
-      <li><strong>Better speed:</strong> Some RAID levels can improve read and write performance</li>
-      <li><strong>Higher fault tolerance:</strong> Some RAID levels can keep data accessible even if a drive fails</li>
+      <li><strong>Increase capacity:</strong> Combine multiple disks into one large storage pool</li>
+      <li><strong>Improve performance:</strong> Distribute data for faster read/write speeds</li>
+      <li><strong>Enhance reliability:</strong> Some RAID levels protect against disk failure</li>
     </ul>
   </div>
 
@@ -174,57 +57,70 @@
 
     <h3>RAID 0</h3>
     <p>
-      RAID 0 splits data across multiple drives. It offers high speed and full capacity efficiency, but if even one drive fails, all data is lost.
+      Data is striped across multiple disks. It offers high performance and full capacity usage,
+      but no redundancy—if one disk fails, all data is lost.
     </p>
 
     <h3>RAID 1</h3>
     <p>
-      RAID 1 mirrors the same data across multiple drives. It offers strong redundancy, but usable capacity is reduced because the data is duplicated.
+      Data is mirrored across disks. It provides strong data protection,
+      but usable capacity is reduced.
     </p>
 
     <h3>RAID 5</h3>
     <p>
-      RAID 5 distributes both data and parity information across multiple drives. It provides a good balance of capacity efficiency and fault tolerance, making it popular for home NAS setups.
+      Data and parity are distributed across disks.
+      It offers a good balance of performance, capacity, and redundancy,
+      making it popular for home NAS systems.
     </p>
 
     <h3>RAID 6</h3>
     <p>
-      RAID 6 is similar to RAID 5 but offers higher redundancy. It can tolerate up to two drive failures, though usable capacity is lower.
+      Similar to RAID 5 but with double parity,
+      allowing up to two disk failures. Usable capacity is lower.
     </p>
 
     <h3>RAID 10</h3>
     <p>
-      RAID 10 combines RAID 1 and RAID 0. It offers both high performance and redundancy, but it requires more drives.
+      A combination of RAID 1 and RAID 0.
+      It provides both performance and redundancy,
+      but requires more disks.
     </p>
   </div>
 
   <div class="card">
-    <h2>Recommended RAID Levels by Use Case</h2>
+    <h2>Which RAID Should You Choose?</h2>
     <ul>
-      <li><strong>Home NAS:</strong> RAID 1 or RAID 5</li>
-      <li><strong>Data safety first:</strong> RAID 1 or RAID 6</li>
-      <li><strong>Performance-focused workloads:</strong> RAID 0 or RAID 10</li>
-      <li><strong>Balanced choice:</strong> RAID 5</li>
+      <li><strong>Maximize capacity:</strong> RAID 0</li>
+      <li><strong>High data safety:</strong> RAID 1 or RAID 6</li>
+      <li><strong>Balanced option:</strong> RAID 5</li>
+      <li><strong>Performance + safety:</strong> RAID 10</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>RAID Is Not a Backup</h2>
     <p>
-      RAID can protect against drive failure, but it does not protect you from accidental deletion, malware, ransomware, fire, theft, or other disasters.
-      Important data should always be backed up separately, such as to an external drive or cloud storage.
+      RAID protects against hardware failure, but it does not protect against
+      accidental deletion, malware, ransomware, or disasters.
+      Always keep a separate backup of important data.
     </p>
   </div>
 
   <div class="card">
-    <h2>Want to Calculate RAID Capacity?</h2>
+    <h2>Check RAID Capacity</h2>
     <p>
-      Usable RAID capacity depends on the RAID level, the number of drives, and the size of each drive.
-      If you want to quickly estimate the actual usable capacity, try the tool below.
+      Usable RAID capacity depends on the RAID level, number of disks,
+      and disk size. To quickly calculate it, use the tool below.
     </p>
     <p>
-      <a href="index.html"><strong>Use the RAID Capacity Calculator</strong></a>
+      <a href="tool.html"><strong>Use the RAID Capacity Calculator</strong></a>
     </p>
   </div>
+
+  <p>
+    <a href="index.html">← Back to Home</a>
+  </p>
+
 </body>
 </html>

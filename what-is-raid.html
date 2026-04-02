@@ -3,162 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAIDとは？仕組み・種類・RAID 0/1/5/6/10の違いをわかりやすく解説</title>
-  <meta name="description" content="RAIDとは何かを初心者向けにわかりやすく解説。RAID 0, 1, 5, 6, 10の違いやメリット・デメリット、用途ごとの選び方までまとめています。" />
-  <style>
-    /* ===== Base ===== */
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      max-width: 760px;
-      margin: 40px auto;
-      padding: 0 16px;
-      line-height: 1.7;
-      background: #f5f7fb;
-      color: #1f2937;
-    }
-
-    /* ===== Header / Nav ===== */
-    nav {
-      margin: 12px 0 20px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    nav a {
-      margin-right: 16px;
-      color: #2563eb;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== Typography ===== */
-    h1 {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      margin-top: 28px;
-      font-size: 22px;
-      border-left: 4px solid #2563eb;
-      padding-left: 10px;
-    }
-
-    h3 {
-      margin-top: 20px;
-      font-size: 18px;
-    }
-
-    /* ===== Card ===== */
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 22px;
-      margin-top: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-    }
-
-    /* ===== Form ===== */
-    label {
-      display: block;
-      margin-top: 14px;
-      font-weight: 600;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #d1d5db;
-      box-sizing: border-box;
-    }
-
-    /* ===== Button ===== */
-    button {
-      width: 100%;
-      margin-top: 20px;
-      padding: 12px;
-      font-size: 16px;
-      font-weight: bold;
-      background: #2563eb;
-      color: #ffffff;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    button:hover {
-      background: #1d4ed8;
-    }
-
-    /* ===== Result ===== */
-    .result {
-      margin-top: 20px;
-      padding: 20px;
-      background: #eef2ff;
-      border-radius: 10px;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    /* ===== Message ===== */
-    .error {
-      color: #dc2626;
-      font-weight: bold;
-      margin-top: 12px;
-    }
-
-    /* ===== Note ===== */
-    .note {
-      font-size: 14px;
-      color: #6b7280;
-      margin-top: 12px;
-    }
-
-    /* ===== Links ===== */
-    a {
-      color: #2563eb;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== Language Switch ===== */
-    .lang-switch {
-      font-size: 14px;
-      margin-bottom: 10px;
-    }
-  </style>
+  <title>RAIDとは？仕組み・種類・選び方を初心者向けに解説</title>
+  <meta name="description" content="RAIDとは何かを初心者向けにわかりやすく解説します。RAID 0, 1, 5, 6, 10の違い、メリット・デメリット、用途ごとの選び方までまとめています。" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <p><a href="en/what-is-raid.html">English version</a></p>
+  <p class="lang-switch">
+    🌍 <a href="en/what-is-raid.html">Switch to English</a>
+  </p>
+
+  <nav>
+    <a href="index.html">ホーム</a>
+    <a href="tool.html">計算ツール</a>
+    <a href="what-is-raid.html">RAIDとは？</a>
+    <a href="en/index.html">English</a>
+  </nav>
 
   <h1>RAIDとは？仕組み・種類・RAIDの違いをわかりやすく解説</h1>
 
   <p>
-    RAIDは、複数のディスクをまとめて使うことで、容量・速度・故障耐性を向上させる仕組みです。
+    RAIDは、複数のディスクをまとめて使うことで、
+    容量・速度・故障耐性を向上させる仕組みです。
     NASやサーバー、自作PCなどでよく使われます。
   </p>
 
   <p>
-    🔢 <a href="index.html">RAID容量計算ツールはこちら</a><br>
-    🌍 <a href="en/index.html">English version of the RAID calculator</a>
+    🔢 <a href="tool.html">RAID容量計算ツールはこちら</a><br>
+    🌍 <a href="en/tool.html">English version of the RAID calculator</a>
   </p>
 
   <div class="card">
     <h2>RAIDとは</h2>
     <p>
-      RAID は "Redundant Array of Independent Disks" の略で、複数のHDDやSSDを1つのまとまりとして扱う技術です。
-      RAIDを使うことで、単に容量を増やすだけでなく、読み書きを速くしたり、ディスク故障時の安全性を高めたりできます。
+      RAID は "Redundant Array of Independent Disks" の略で、
+      複数のHDDやSSDを1つのまとまりとして扱う技術です。
+      RAIDを使うことで、単に容量を増やすだけでなく、
+      読み書きを速くしたり、ディスク故障時の安全性を高めたりできます。
     </p>
   </div>
 
@@ -227,13 +108,18 @@
   <div class="card">
     <h2>RAID容量を知りたい場合</h2>
     <p>
-      RAIDの使用可能容量は、RAIDレベルとディスク本数、1台あたりの容量によって変わります。
+      RAIDの使用可能容量は、RAIDレベルとディスク本数、
+      1台あたりの容量によって変わります。
       実際の容量をすぐ確認したい場合は、以下のツールを使ってください。
     </p>
     <p>
-      <a href="index.html"><strong>RAID容量計算ツールを使う</strong></a>
+      <a href="tool.html"><strong>RAID容量計算ツールを使う</strong></a>
     </p>
   </div>
+
+  <p>
+    <a href="index.html">← ホームに戻る</a>
+  </p>
 
 </body>
 </html>

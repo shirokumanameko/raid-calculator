@@ -3,157 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAID容量計算ツール｜RAID 0/1/5/6/10の容量を簡単計算（無料）</title>
-  <meta name="description" content="RAID 0, 1, 5, 6, 10の使用可能容量を簡単に計算できる無料ツール。ディスク本数と容量を入力するだけで即計算。RAIDの計算方法や選び方も解説。" />
-  <style>
-    /* ===== Base ===== */
-    body {
-    font-family: system-ui, -apple-system, sans-serif;
-    max-width: 760px;
-    margin: 40px auto;
-    padding: 0 16px;
-    line-height: 1.7;
-    background: #f5f7fb;
-    color: #1f2937;
-    }
-
-    /* ===== Header / Nav ===== */
-    nav {
-    margin: 12px 0 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #e5e7eb;
-    }
-
-    nav a {
-    margin-right: 16px;
-    color: #2563eb;
-    font-weight: 600;
-    text-decoration: none;
-    }
-
-    nav a:hover {
-    text-decoration: underline;
-    }
-
-    /* ===== Typography ===== */
-    h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
-    }
-
-    h2 {
-    margin-top: 28px;
-    font-size: 22px;
-    border-left: 4px solid #2563eb;
-    padding-left: 10px;
-    }
-
-    h3 {
-    margin-top: 20px;
-    font-size: 18px;
-    }
-
-    /* ===== Card ===== */
-    .card {
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 22px;
-    margin-top: 20px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-    }
-
-    /* ===== Form ===== */
-    label {
-    display: block;
-    margin-top: 14px;
-    font-weight: 600;
-    }
-
-    input, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #d1d5db;
-    box-sizing: border-box;
-    }
-
-    /* ===== Button ===== */
-    button {
-    width: 100%;
-    margin-top: 20px;
-    padding: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    background: #2563eb;
-    color: #ffffff;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s;
-    }
-
-    button:hover {
-    background: #1d4ed8;
-    }
-
-    /* ===== Result ===== */
-    .result {
-    margin-top: 20px;
-    padding: 20px;
-    background: #eef2ff;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    }
-
-    /* ===== Message ===== */
-    .error {
-    color: #dc2626;
-    font-weight: bold;
-    margin-top: 12px;
-    }
-
-    /* ===== Note ===== */
-    .note {
-    font-size: 14px;
-    color: #6b7280;
-    margin-top: 12px;
-    }
-
-    /* ===== Links ===== */
-    a {
-    color: #2563eb;
-    }
-
-    a:hover {
-    text-decoration: underline;
-    }
-
-    /* ===== Language Switch ===== */
-    .lang-switch {
-    font-size: 14px;
-    margin-bottom: 10px;
-    }
-  </style>
+  <title>RAID容量計算ツール｜RAID 0/1/5/6/10対応</title>
+  <meta name="description" content="RAID 0, 1, 5, 6, 10の使用可能容量を簡単に計算できる無料ツールです。ディスク本数と容量を入力するだけで、RAID容量の目安をすぐ確認できます。" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- 言語・ナビ -->
-  <p>
-    🌍 <a href="en/index.html">English version available here</a>
+  <p class="lang-switch">
+    🌍 <a href="en/tool.html">Switch to English</a>
   </p>
 
   <nav>
     <a href="index.html">ホーム</a>
+    <a href="tool.html">計算ツール</a>
     <a href="what-is-raid.html">RAIDとは？</a>
+    <a href="en/index.html">English</a>
   </nav>
 
   <h1>RAID容量計算ツール</h1>
   <p>
-    ディスク本数・1台あたりの容量・RAIDレベルを入力すると、
-    使用可能容量の目安を計算します。
+    ディスク本数、1台あたりの容量、RAIDレベルを入力すると、
+    使用可能容量の目安をすぐに計算できます。
   </p>
 
   <div class="card">
@@ -178,8 +48,8 @@
     <div id="result" class="result" style="display:none;"></div>
 
     <div class="note">
-      ※ 同じ容量のディスクで構成する前提の簡易計算です。<br>
-      ※ 実際の使用可能容量はファイルシステムやメーカー表記の違いで多少前後します。
+      ※ 同容量のディスクで構成する前提の簡易計算です。<br>
+      ※ 実際の使用可能容量は、ファイルシステムやメーカー表記の違いにより多少前後します。
     </div>
   </div>
 
@@ -220,7 +90,7 @@
 
     <p>
       例えば、8TBのディスクを4台でRAID 5にした場合、<br>
-      (4 - 1) × 8TB = 24TB となります。
+      (4 - 1) × 8TB = 24TB です。
     </p>
   </div>
 
@@ -228,7 +98,7 @@
     <h2>RAIDの仕組みを知りたい方へ</h2>
     <p>
       RAIDの基本や種類について詳しく知りたい場合は、
-      <a href="what-is-raid.html">RAIDとは？の解説ページ</a>をご覧ください。
+      <a href="what-is-raid.html">「RAIDとは？」の解説ページ</a>をご覧ください。
     </p>
   </div>
 
@@ -236,10 +106,14 @@
     <h2>RAIDはバックアップではありません</h2>
     <p>
       RAIDはディスク故障に対する耐性を高める技術ですが、
-      データの誤削除やウイルス感染、災害などからは守れません。
-      重要なデータは別途バックアップを行うことをおすすめします。
+      データの誤削除、マルウェア、ランサムウェア、災害などからは守れません。
+      重要なデータは、外付けディスクやクラウドなどに別途バックアップすることをおすすめします。
     </p>
   </div>
+
+  <p>
+    <a href="index.html">← ホームに戻る</a>
+  </p>
 
   <script>
     function calculateRaid() {
