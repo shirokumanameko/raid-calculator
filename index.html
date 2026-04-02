@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAID容量計算ツール</title>
+  <meta name="description" content="RAID 0, 1, 5, 6, 10 の使用可能容量をすぐ計算できる無料ツールです。" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 14px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 16px;
+      background: #f7f7f7;
+      border-radius: 8px;
+      font-size: 18px;
+    }
+    .note {
+      font-size: 14px;
+      color: #555;
+      margin-top: 12px;
+    }
+    .error {
+      color: #c62828;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1>RAID容量計算ツール</h1>
+  <p>ディスク本数・1台あたりの容量・RAIDレベルを入力すると、使用可能容量の目安を計算します。</p>
+
+  <div class="card">
+    <label for="raidType">RAIDタイプ</label>
+    <select id="raidType">
+      <option value="0">RAID 0</option>
+      <option value="1">RAID 1</option>
+      <option value="5">RAID 5</option>
+      <option value="6">RAID 6</option>
+      <option value="10">RAID 10</option>
+    </select>
+
+    <label for="diskCount">ディスク本数</label>
+    <input type="number" id="diskCount" min="1" value="4" />
+
+    <label for="diskSize">1台あたりの容量 (TB)</label>
+    <input type="number" id="diskSize" min="0.1" step="0.1" value="8" />
+
+    <button onclick="calculateRaid()">計算する</button>
+
+    <div id="message" class="error"></div>
+    <div id="result" class="result" style="display:none;"></div>
+    <div class="note">
+      ※ 同じ容量のディスクで構成する前提の簡易計算です。<br>
+      ※ 実際の使用可能容量はファイルシステムやメーカー表記の違いで多少前後します。
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>RAIDの簡単な目安</h2>
+    <ul>
+      <li>RAID 0: 冗長性なし、容量効率最大</li>
+      <li>RAID 1: ミラーリング、2台以上で容量効率は低め</li>
+      <li>RAID 5: 1台分を冗長性に使用</li>
+      <li>RAID 6: 2台分を冗長性に使用</li>
+      <li>RAID 10: ミラー + ストライピング、偶数台が前提</li>
+    </ul>
+  </div>
+
+  <script>
+    function calculateRaid() {
+      const raidType = document.getElementById("raidType").value;
+      const diskCount = parseInt(document.getElementById("diskCount").value, 10);
+      const diskSize = parseFloat(document.getElementById("diskSize").value);
+
+      const messageEl = document.getElementById("message");
+      const resultEl = document.getElementById("result");
+
+      messageEl.textContent = "";
+      resultEl.style.display = "none";
+      resultEl.textContent = "";
+
+      if (isNaN(diskCount) || isNaN(diskSize) || diskCount <= 0 || diskSize <= 0) {
+        messageEl.textContent = "正しい値を入力してください。";
+        return;
+      }
+
+      let usable = 0;
+
+      if (raidType === "0") {
+        usable = diskCount * diskSize;
+      } else if (raidType === "1") {
+        if (diskCount < 2) {
+          messageEl.textContent = "RAID 1 は2台以上必要です。";
+          return;
+        }
+        usable = diskSize;
+      } else if (raidType === "5") {
+        if (diskCount < 3) {
+          messageEl.textContent = "RAID 5 は3台以上必要です。";
+          return;
+        }
+        usable = (diskCount - 1) * diskSize;
+      } else if (raidType === "6") {
+        if (diskCount < 4) {
+          messageEl.textContent = "RAID 6 は4台以上必要です。";
+          return;
+        }
+        usable = (diskCount - 2) * diskSize;
+      } else if (raidType === "10") {
+        if (diskCount < 4 || diskCount % 2 !== 0) {
+          messageEl.textContent = "RAID 10 は4台以上の偶数台が必要です。";
+          return;
+        }
+        usable = (diskCount / 2) * diskSize;
+      }
+
+      resultEl.style.display = "block";
+      resultEl.innerHTML = `
+        使用可能容量の目安: <strong>${usable.toFixed(2)} TB</strong>
+      `;
+    }
+  </script>
+</body>
+</html>
