@@ -6,64 +6,135 @@
   <title>RAID Capacity Calculator | Calculate RAID 0/1/5/6/10 Storage (Free)</title>
   <meta name="description" content="Free RAID capacity calculator for RAID 0, 1, 5, 6, and 10. Enter number of drives and size to instantly estimate usable storage. Includes explanation of RAID levels." />
   <style>
+    /* ===== Base ===== */
     body {
-      font-family: Arial, sans-serif;
-      max-width: 720px;
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 760px;
       margin: 40px auto;
       padding: 0 16px;
-      line-height: 1.6;
+      line-height: 1.7;
+      background: #f5f7fb;
+      color: #1f2937;
     }
+
+    /* ===== Header / Nav ===== */
+    nav {
+      margin: 12px 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    nav a {
+      margin-right: 16px;
+      color: #2563eb;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Typography ===== */
     h1 {
-      font-size: 28px;
-      margin-bottom: 8px;
+      font-size: 30px;
+      margin-bottom: 10px;
     }
+
     h2 {
-      margin-top: 24px;
+      margin-top: 28px;
+      font-size: 22px;
+      border-left: 4px solid #2563eb;
+      padding-left: 10px;
     }
-    .card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 20px;
+
+    h3 {
       margin-top: 20px;
+      font-size: 18px;
     }
+
+    /* ===== Card ===== */
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 22px;
+      margin-top: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    }
+
+    /* ===== Form ===== */
     label {
       display: block;
       margin-top: 14px;
-      font-weight: bold;
+      font-weight: 600;
     }
-    input, select, button {
+
+    input, select {
       width: 100%;
       padding: 10px;
       margin-top: 6px;
       font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
       box-sizing: border-box;
     }
+
+    /* ===== Button ===== */
     button {
+      width: 100%;
       margin-top: 20px;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
+      transition: 0.2s;
     }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    /* ===== Result ===== */
     .result {
       margin-top: 20px;
-      padding: 16px;
-      background: #f7f7f7;
-      border-radius: 8px;
-      font-size: 18px;
+      padding: 20px;
+      background: #eef2ff;
+      border-radius: 10px;
+      font-size: 20px;
+      font-weight: bold;
     }
-    .note {
-      font-size: 14px;
-      color: #555;
-      margin-top: 12px;
-    }
+
+    /* ===== Message ===== */
     .error {
-      color: #c62828;
+      color: #dc2626;
       font-weight: bold;
       margin-top: 12px;
     }
-    nav {
-      margin-top: 10px;
+
+    /* ===== Note ===== */
+    .note {
+      font-size: 14px;
+      color: #6b7280;
+      margin-top: 12px;
     }
-    nav a {
-      margin-right: 12px;
+
+    /* ===== Links ===== */
+    a {
+      color: #2563eb;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== Language Switch ===== */
+    .lang-switch {
+      font-size: 14px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
