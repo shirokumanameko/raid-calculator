@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAIDとは？仕組み・種類・RAID 0/1/5/6/10の違いをわかりやすく解説</title>
+  <meta name="description" content="RAIDとは何かを初心者向けにわかりやすく解説。RAID 0, 1, 5, 6, 10の違いやメリット・デメリット、用途ごとの選び方までまとめています。" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 820px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.7;
+    }
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin-top: 32px;
+      font-size: 24px;
+    }
+    h3 {
+      margin-top: 24px;
+      font-size: 20px;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .note {
+      background: #f7f7f7;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 16px;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <p><a href="/en/what-is-raid.html">English version</a></p>
+
+  <h1>RAIDとは？仕組み・種類・RAIDの違いをわかりやすく解説</h1>
+
+  <p>
+    RAIDは、複数のディスクをまとめて使うことで、容量・速度・故障耐性を向上させる仕組みです。
+    NASやサーバー、自作PCなどでよく使われます。
+  </p>
+
+  <p>
+    🔢 <a href="/raid-calculator/">RAID容量計算ツールはこちら</a><br>
+    🌍 <a href="/raid-calculator/en/">English version of the RAID calculator</a>
+  </p>
+
+  <div class="card">
+    <h2>RAIDとは</h2>
+    <p>
+      RAID は "Redundant Array of Independent Disks" の略で、複数のHDDやSSDを1つのまとまりとして扱う技術です。
+      RAIDを使うことで、単に容量を増やすだけでなく、読み書きを速くしたり、ディスク故障時の安全性を高めたりできます。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>RAIDを使う理由</h2>
+    <ul>
+      <li><strong>容量を増やしたい:</strong> 複数ディスクをまとめて大きな保存領域にできる</li>
+      <li><strong>速度を上げたい:</strong> データを分散して高速に読み書きできる場合がある</li>
+      <li><strong>故障に強くしたい:</strong> 一部のRAIDではディスク故障時もデータを保持できる</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>代表的なRAIDの種類</h2>
+
+    <h3>RAID 0</h3>
+    <p>
+      複数ディスクにデータを分散して保存する方式です。
+      速度と容量効率は高いですが、1台でも故障すると全データを失います。
+    </p>
+
+    <h3>RAID 1</h3>
+    <p>
+      同じデータを複数ディスクに複製して保存する方式です。
+      安全性は高いですが、使用可能容量は小さくなります。
+    </p>
+
+    <h3>RAID 5</h3>
+    <p>
+      データとパリティ情報を分散して保存する方式です。
+      容量効率と安全性のバランスがよく、家庭用NASでも人気があります。
+    </p>
+
+    <h3>RAID 6</h3>
+    <p>
+      RAID 5よりさらに冗長性を高めた方式で、2台までの故障に耐えられます。
+      その分、使用可能容量は減ります。
+    </p>
+
+    <h3>RAID 10</h3>
+    <p>
+      RAID 1 と RAID 0 を組み合わせた方式です。
+      速度と安全性の両立が可能ですが、必要ディスク数が多くなります。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>用途ごとのおすすめ</h2>
+    <ul>
+      <li><strong>家庭用NAS:</strong> RAID 1 または RAID 5</li>
+      <li><strong>安全性重視の保存:</strong> RAID 1, RAID 6</li>
+      <li><strong>速度重視の作業:</strong> RAID 0, RAID 10</li>
+      <li><strong>バランス重視:</strong> RAID 5</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>RAIDはバックアップではない</h2>
+    <p>
+      RAIDはディスク故障への耐性を高める仕組みですが、
+      誤削除、ウイルス感染、ランサムウェア、火災、盗難などからは守れません。
+      重要なデータは、外付けディスクやクラウドなどに別途バックアップする必要があります。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>RAID容量を知りたい場合</h2>
+    <p>
+      RAIDの使用可能容量は、RAIDレベルとディスク本数、1台あたりの容量によって変わります。
+      実際の容量をすぐ確認したい場合は、以下のツールを使ってください。
+    </p>
+    <p>
+      <a href="/raid-calculator/"><strong>RAID容量計算ツールを使う</strong></a>
+    </p>
+  </div>
+
+</body>
+</html>

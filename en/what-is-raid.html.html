@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Is RAID? A Beginner-Friendly Guide to How RAID Works</title>
+  <meta name="description" content="Learn what RAID is in simple terms. This beginner-friendly guide explains RAID 0, 1, 5, 6, and 10, including their pros, cons, and best use cases." />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 820px;
+      margin: 40px auto;
+      padding: 0 16px;
+      line-height: 1.7;
+    }
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin-top: 32px;
+      font-size: 24px;
+    }
+    h3 {
+      margin-top: 24px;
+      font-size: 20px;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .note {
+      background: #f7f7f7;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 16px;
+    }
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <p><a href="/what-is-raid.html">日本語版はこちら</a></p>
+
+  <h1>What Is RAID? A Beginner-Friendly Guide</h1>
+  <p>
+    RAID is a way to use multiple drives together to improve storage capacity, speed, and fault tolerance.
+    It is commonly used in NAS systems, servers, and custom-built PCs.
+  </p>
+
+  <p>
+    🔢 <a href="/raid-calculator/en/">RAID Capacity Calculator</a><br>
+    🌍 <a href="/raid-calculator/">Japanese version of the RAID calculator</a>
+  </p>
+
+  <div class="card">
+    <h2>What Is RAID?</h2>
+    <p>
+      RAID stands for "Redundant Array of Independent Disks." It is a technology that combines multiple HDDs or SSDs into a single logical unit.
+      Depending on the RAID level, it can increase storage capacity, improve read/write speed, and provide protection against drive failure.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Why Use RAID?</h2>
+    <ul>
+      <li><strong>More capacity:</strong> Combine multiple drives into one larger storage space</li>
+      <li><strong>Better speed:</strong> Some RAID levels can improve read and write performance</li>
+      <li><strong>Higher fault tolerance:</strong> Some RAID levels can keep data accessible even if a drive fails</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Common RAID Levels</h2>
+
+    <h3>RAID 0</h3>
+    <p>
+      RAID 0 splits data across multiple drives. It offers high speed and full capacity efficiency, but if even one drive fails, all data is lost.
+    </p>
+
+    <h3>RAID 1</h3>
+    <p>
+      RAID 1 mirrors the same data across multiple drives. It offers strong redundancy, but usable capacity is reduced because the data is duplicated.
+    </p>
+
+    <h3>RAID 5</h3>
+    <p>
+      RAID 5 distributes both data and parity information across multiple drives. It provides a good balance of capacity efficiency and fault tolerance, making it popular for home NAS setups.
+    </p>
+
+    <h3>RAID 6</h3>
+    <p>
+      RAID 6 is similar to RAID 5 but offers higher redundancy. It can tolerate up to two drive failures, though usable capacity is lower.
+    </p>
+
+    <h3>RAID 10</h3>
+    <p>
+      RAID 10 combines RAID 1 and RAID 0. It offers both high performance and redundancy, but it requires more drives.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Recommended RAID Levels by Use Case</h2>
+    <ul>
+      <li><strong>Home NAS:</strong> RAID 1 or RAID 5</li>
+      <li><strong>Data safety first:</strong> RAID 1 or RAID 6</li>
+      <li><strong>Performance-focused workloads:</strong> RAID 0 or RAID 10</li>
+      <li><strong>Balanced choice:</strong> RAID 5</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>RAID Is Not a Backup</h2>
+    <p>
+      RAID can protect against drive failure, but it does not protect you from accidental deletion, malware, ransomware, fire, theft, or other disasters.
+      Important data should always be backed up separately, such as to an external drive or cloud storage.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Want to Calculate RAID Capacity?</h2>
+    <p>
+      Usable RAID capacity depends on the RAID level, the number of drives, and the size of each drive.
+      If you want to quickly estimate the actual usable capacity, try the tool below.
+    </p>
+    <p>
+      <a href="/raid-calculator/en/"><strong>Use the RAID Capacity Calculator</strong></a>
+    </p>
+  </div>
+</body>
+</html>

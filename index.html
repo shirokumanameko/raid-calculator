@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAID容量計算ツール｜RAID 0/1/5/6/10対応（無料・ブラウザで即計算）</title>
-  <p>
-  🌍 <a href="/raid-calculator/en/">English version available here</a>
-  </p>
-  <meta name="description" content="RAID 0, 1, 5, 6, 10の使用可能容量を簡単に計算できる無料ツール。ディスク本数と容量を入力するだけで即計算できます。" />
+  <title>RAID容量計算ツール｜RAID 0/1/5/6/10の容量を簡単計算（無料）</title>
+  <meta name="description" content="RAID 0, 1, 5, 6, 10の使用可能容量を簡単に計算できる無料ツール。ディスク本数と容量を入力するだけで即計算。RAIDの計算方法や選び方も解説。" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -19,6 +16,9 @@
     h1 {
       font-size: 28px;
       margin-bottom: 8px;
+    }
+    h2 {
+      margin-top: 24px;
     }
     .card {
       border: 1px solid #ddd;
@@ -59,11 +59,31 @@
       font-weight: bold;
       margin-top: 12px;
     }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      margin-right: 12px;
+    }
   </style>
 </head>
 <body>
+
+  <!-- 言語・ナビ -->
+  <p>
+    🌍 <a href="/raid-calculator/en/">English version available here</a>
+  </p>
+
+  <nav>
+    <a href="index.html">ホーム</a>
+    <a href="what-is-raid.html">RAIDとは？</a>
+  </nav>
+
   <h1>RAID容量計算ツール</h1>
-  <p>ディスク本数・1台あたりの容量・RAIDレベルを入力すると、使用可能容量の目安を計算します。</p>
+  <p>
+    ディスク本数・1台あたりの容量・RAIDレベルを入力すると、
+    使用可能容量の目安を計算します。
+  </p>
 
   <div class="card">
     <label for="raidType">RAIDタイプ</label>
@@ -85,6 +105,7 @@
 
     <div id="message" class="error"></div>
     <div id="result" class="result" style="display:none;"></div>
+
     <div class="note">
       ※ 同じ容量のディスクで構成する前提の簡易計算です。<br>
       ※ 実際の使用可能容量はファイルシステムやメーカー表記の違いで多少前後します。
@@ -95,11 +116,58 @@
     <h2>RAIDの簡単な目安</h2>
     <ul>
       <li>RAID 0: 冗長性なし、容量効率最大</li>
-      <li>RAID 1: ミラーリング、2台以上で容量効率は低め</li>
+      <li>RAID 1: ミラーリング、容量効率は低め</li>
       <li>RAID 5: 1台分を冗長性に使用</li>
       <li>RAID 6: 2台分を冗長性に使用</li>
       <li>RAID 10: ミラー + ストライピング、偶数台が前提</li>
     </ul>
+  </div>
+
+  <div class="card">
+    <h2>どのRAIDを選べばいい？</h2>
+    <ul>
+      <li><strong>容量を最大化したい:</strong> RAID 0</li>
+      <li><strong>データを安全に保管したい:</strong> RAID 1 / RAID 6</li>
+      <li><strong>バランス重視:</strong> RAID 5</li>
+      <li><strong>速度と安全性の両立:</strong> RAID 10</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>RAID容量の計算方法</h2>
+    <p>
+      RAIDの使用可能容量は、RAIDレベルによって異なります。
+    </p>
+
+    <ul>
+      <li><strong>RAID 0:</strong> 全ディスクの合計容量</li>
+      <li><strong>RAID 1:</strong> 1台分の容量</li>
+      <li><strong>RAID 5:</strong> (ディスク数 - 1) × 容量</li>
+      <li><strong>RAID 6:</strong> (ディスク数 - 2) × 容量</li>
+      <li><strong>RAID 10:</strong> (ディスク数 / 2) × 容量</li>
+    </ul>
+
+    <p>
+      例えば、8TBのディスクを4台でRAID 5にした場合、<br>
+      (4 - 1) × 8TB = 24TB となります。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>RAIDの仕組みを知りたい方へ</h2>
+    <p>
+      RAIDの基本や種類について詳しく知りたい場合は、
+      <a href="/what-is-raid.html">RAIDとは？の解説ページ</a>をご覧ください。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>RAIDはバックアップではありません</h2>
+    <p>
+      RAIDはディスク故障に対する耐性を高める技術ですが、
+      データの誤削除やウイルス感染、災害などからは守れません。
+      重要なデータは別途バックアップを行うことをおすすめします。
+    </p>
   </div>
 
   <script>
@@ -157,34 +225,5 @@
     }
   </script>
 
-  <div class="card">
-  <h2>RAID容量の計算方法</h2>
-  <p>
-    RAIDの使用可能容量は、RAIDレベルによって異なります。
-    以下は代表的な計算方法です。
-  </p>
-
-  <ul>
-    <li><strong>RAID 0:</strong> 全ディスクの合計容量</li>
-    <li><strong>RAID 1:</strong> 1台分の容量（ミラーリング）</li>
-    <li><strong>RAID 5:</strong> (ディスク数 - 1) × 容量</li>
-    <li><strong>RAID 6:</strong> (ディスク数 - 2) × 容量</li>
-    <li><strong>RAID 10:</strong> (ディスク数 / 2) × 容量</li>
-  </ul>
-
-  <p>
-    例えば、8TBのディスクを4台でRAID 5にした場合、
-    (4 - 1) × 8TB = 24TB となります。
-  </p>
-</div>
-
-<div class="card">
-  <h2>RAIDはバックアップではありません</h2>
-  <p>
-    RAIDはディスク故障に対する耐性を高める技術ですが、
-    データの誤削除やウイルス感染、災害などからは守れません。
-    重要なデータは別途バックアップを行うことをおすすめします。
-  </p>
-</div>
 </body>
 </html>

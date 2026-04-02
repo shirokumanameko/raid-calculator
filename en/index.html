@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAID Capacity Calculator | RAID 0/1/5/6/10 (Free Online Tool)</title>
-  <p>
-  🌍 <a href="/raid-calculator/">日本語版はこちら</a>
-  </p>
-  <meta name="description" content="Calculate usable RAID capacity instantly. Supports RAID 0, 1, 5, 6, and 10. Free and easy-to-use online calculator." />
+  <title>RAID Capacity Calculator | Calculate RAID 0/1/5/6/10 Storage (Free)</title>
+  <meta name="description" content="Free RAID capacity calculator for RAID 0, 1, 5, 6, and 10. Enter number of drives and size to instantly estimate usable storage. Includes explanation of RAID levels." />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -19,6 +16,9 @@
     h1 {
       font-size: 28px;
       margin-bottom: 8px;
+    }
+    h2 {
+      margin-top: 24px;
     }
     .card {
       border: 1px solid #ddd;
@@ -59,11 +59,30 @@
       font-weight: bold;
       margin-top: 12px;
     }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      margin-right: 12px;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Language / Navigation -->
+  <p>
+    🌍 <a href="/raid-calculator/">日本語版はこちら</a>
+  </p>
+
+  <nav>
+    <a href="/raid-calculator/en/">Home</a>
+    <a href="/en/what-is-raid.html">What is RAID?</a>
+  </nav>
+
   <h1>RAID Capacity Calculator</h1>
-  <p>Enter disk count, disk size, and RAID level to calculate usable capacity instantly.</p>
+  <p>
+    Enter the number of drives, size per drive, and RAID level to estimate usable storage capacity.
+  </p>
 
   <div class="card">
     <label for="raidType">RAID Type</label>
@@ -75,38 +94,75 @@
       <option value="10">RAID 10</option>
     </select>
 
-    <label for="diskCount">Number of Disks</label>
+    <label for="diskCount">Number of Drives</label>
     <input type="number" id="diskCount" min="1" value="4" />
 
-    <label for="diskSize">Disk Size (TB)</label>
+    <label for="diskSize">Capacity per Drive (TB)</label>
     <input type="number" id="diskSize" min="0.1" step="0.1" value="8" />
 
     <button onclick="calculateRaid()">Calculate</button>
 
     <div id="message" class="error"></div>
     <div id="result" class="result" style="display:none;"></div>
+
     <div class="note">
-      * Assumes identical disk sizes.<br>
-      * Actual usable capacity may vary slightly.
+      * Assumes drives of equal size.<br>
+      * Actual usable capacity may vary depending on file system and manufacturer definitions.
     </div>
   </div>
 
   <div class="card">
-    <h2>How RAID Capacity is Calculated</h2>
+    <h2>Quick RAID Overview</h2>
     <ul>
-      <li><strong>RAID 0:</strong> Total capacity of all disks</li>
-      <li><strong>RAID 1:</strong> Capacity of one disk</li>
-      <li><strong>RAID 5:</strong> (N - 1) × disk size</li>
-      <li><strong>RAID 6:</strong> (N - 2) × disk size</li>
-      <li><strong>RAID 10:</strong> (N / 2) × disk size</li>
+      <li>RAID 0: No redundancy, maximum capacity</li>
+      <li>RAID 1: Mirroring, lower capacity efficiency</li>
+      <li>RAID 5: Uses 1 drive worth of parity</li>
+      <li>RAID 6: Uses 2 drives worth of parity</li>
+      <li>RAID 10: Mirror + striping, requires even number of drives</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2>Important Note</h2>
+    <h2>Which RAID Should You Choose?</h2>
+    <ul>
+      <li><strong>Maximize capacity:</strong> RAID 0</li>
+      <li><strong>Data safety:</strong> RAID 1 / RAID 6</li>
+      <li><strong>Balanced choice:</strong> RAID 5</li>
+      <li><strong>Performance + redundancy:</strong> RAID 10</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>How RAID Capacity Is Calculated</h2>
+    <p>Usable capacity depends on the RAID level:</p>
+
+    <ul>
+      <li><strong>RAID 0:</strong> Total of all drives</li>
+      <li><strong>RAID 1:</strong> Capacity of one drive</li>
+      <li><strong>RAID 5:</strong> (Number of drives - 1) × size</li>
+      <li><strong>RAID 6:</strong> (Number of drives - 2) × size</li>
+      <li><strong>RAID 10:</strong> (Number of drives / 2) × size</li>
+    </ul>
+
     <p>
-      RAID is not a backup solution. It protects against disk failure,
-      but not against accidental deletion, malware, or disasters.
+      Example: 4 drives × 8TB in RAID 5 → (4 - 1) × 8 = 24TB
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Learn More About RAID</h2>
+    <p>
+      Want to understand RAID in more detail?
+      See our <a href="/en/what-is-raid.html">What is RAID? guide</a>.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>RAID Is Not a Backup</h2>
+    <p>
+      RAID protects against drive failure, but not against accidental deletion,
+      malware, ransomware, or disasters.
+      Always keep separate backups of important data.
     </p>
   </div>
 
@@ -121,6 +177,7 @@
 
       messageEl.textContent = "";
       resultEl.style.display = "none";
+      resultEl.textContent = "";
 
       if (isNaN(diskCount) || isNaN(diskSize) || diskCount <= 0 || diskSize <= 0) {
         messageEl.textContent = "Please enter valid values.";
@@ -133,33 +190,36 @@
         usable = diskCount * diskSize;
       } else if (raidType === "1") {
         if (diskCount < 2) {
-          messageEl.textContent = "RAID 1 requires at least 2 disks.";
+          messageEl.textContent = "RAID 1 requires at least 2 drives.";
           return;
         }
         usable = diskSize;
       } else if (raidType === "5") {
         if (diskCount < 3) {
-          messageEl.textContent = "RAID 5 requires at least 3 disks.";
+          messageEl.textContent = "RAID 5 requires at least 3 drives.";
           return;
         }
         usable = (diskCount - 1) * diskSize;
       } else if (raidType === "6") {
         if (diskCount < 4) {
-          messageEl.textContent = "RAID 6 requires at least 4 disks.";
+          messageEl.textContent = "RAID 6 requires at least 4 drives.";
           return;
         }
         usable = (diskCount - 2) * diskSize;
       } else if (raidType === "10") {
         if (diskCount < 4 || diskCount % 2 !== 0) {
-          messageEl.textContent = "RAID 10 requires an even number of disks (minimum 4).";
+          messageEl.textContent = "RAID 10 requires an even number of at least 4 drives.";
           return;
         }
         usable = (diskCount / 2) * diskSize;
       }
 
       resultEl.style.display = "block";
-      resultEl.innerHTML = `Usable capacity: <strong>${usable.toFixed(2)} TB</strong>`;
+      resultEl.innerHTML = `
+        Estimated usable capacity: <strong>${usable.toFixed(2)} TB</strong>
+      `;
     }
   </script>
+
 </body>
 </html>
