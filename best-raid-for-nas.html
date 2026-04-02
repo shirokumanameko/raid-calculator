@@ -3,9 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NASにおすすめのRAID構成｜用途別に選び方を解説</title>
-  <meta name="description" content="NASで使うRAIDのおすすめ構成を解説。RAID 1, RAID 5, RAID 6, RAID 10の特徴と用途別の選び方を紹介します。" />
+  <title>NASにおすすめのRAID構成｜用途別に選び方をわかりやすく解説</title>
+  <meta name="description" content="NASにおすすめのRAID構成を初心者向けに解説。RAID 1、RAID 5、RAID 6、RAID 10の違い、家庭用NASや業務用NASでの選び方、容量と安全性の考え方をわかりやすく紹介します。" />
   <link rel="stylesheet" href="style.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
 </head>
 <body>
 
@@ -18,45 +33,243 @@
 <h1>NASにおすすめのRAID構成｜どれを選べばいい？</h1>
 
 <p>
-NASでRAIDを組む際は、容量・安全性・速度のバランスを考える必要があります。
-ここでは用途別におすすめのRAID構成を解説します。
+  NASでRAIDを組むときは、
+  容量・安全性・速度のバランスをどう考えるかが大切です。
+  同じNASでも、家庭用なのか、仕事用なのか、保存するデータがどれくらい重要かによって、
+  おすすめのRAID構成は変わります。
+</p>
+
+<p>
+  この記事では、NASでよく使われるRAID 1、RAID 5、RAID 6、RAID 10の特徴と、
+  用途別のおすすめ構成をわかりやすく解説します。
 </p>
 
 <div class="card">
-  <h2>主なRAID構成</h2>
+  <h2>結論：NASでおすすめのRAID構成</h2>
   <ul>
-    <li><strong>RAID 1:</strong> シンプルで安全</li>
-    <li><strong>RAID 5:</strong> バランスが良い</li>
-    <li><strong>RAID 6:</strong> 高い耐障害性</li>
-    <li><strong>RAID 10:</strong> 高速かつ安全</li>
+    <li><strong>2台構成の家庭用NAS:</strong> RAID 1</li>
+    <li><strong>4台以上でバランス重視:</strong> RAID 5</li>
+    <li><strong>重要データを安全に保存したい:</strong> RAID 6</li>
+    <li><strong>速度も安全性も重視したい:</strong> RAID 10</li>
   </ul>
+  <p>
+    迷ったときは、2台ならRAID 1、4台以上ならRAID 5を基準に考えるとわかりやすいです。
+    ただし、仕事用や大容量ディスクを使う場合はRAID 6も有力です。
+  </p>
 </div>
 
 <div class="card">
-  <h2>用途別おすすめ</h2>
+  <h2>NASでRAIDを考えるときのポイント</h2>
   <ul>
-    <li>家庭用NAS → RAID 1 / RAID 5</li>
-    <li>大容量重視 → RAID 5</li>
-    <li>重要データ → RAID 6</li>
-    <li>速度重視 → RAID 10</li>
+    <li><strong>容量:</strong> どれだけ多くのデータを保存したいか</li>
+    <li><strong>安全性:</strong> ディスク故障時にどれだけデータを守りたいか</li>
+    <li><strong>速度:</strong> 読み書き速度を重視するか</li>
+    <li><strong>ディスク本数:</strong> 2台構成か、4台以上か</li>
   </ul>
+  <p>
+    RAIDは「どれが最強か」ではなく、
+    どの条件を優先するかで選ぶものです。
+  </p>
+</div>
+
+<div class="card">
+  <h2>主なRAID構成の特徴</h2>
+  <table>
+    <tr>
+      <th>RAID</th>
+      <th>容量効率</th>
+      <th>安全性</th>
+      <th>速度</th>
+      <th>向いている用途</th>
+    </tr>
+    <tr>
+      <td>RAID 1</td>
+      <td>低い</td>
+      <td>高い</td>
+      <td>普通</td>
+      <td>2台NAS、家庭用、バックアップ重視</td>
+    </tr>
+    <tr>
+      <td>RAID 5</td>
+      <td>高め</td>
+      <td>中程度</td>
+      <td>バランス型</td>
+      <td>家庭用NAS、容量と安全性の両立</td>
+    </tr>
+    <tr>
+      <td>RAID 6</td>
+      <td>中程度</td>
+      <td>高い</td>
+      <td>やや不利</td>
+      <td>重要データ、業務用途、大容量ディスク</td>
+    </tr>
+    <tr>
+      <td>RAID 10</td>
+      <td>中程度</td>
+      <td>高い</td>
+      <td>速い</td>
+      <td>速度重視、仮想環境、業務用途</td>
+    </tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>RAID 1がおすすめなケース</h2>
+  <p>
+    RAID 1は、同じデータを2台のディスクに複製して保存する方式です。
+    2ベイNASでは定番の構成で、設定もわかりやすく、初心者にも向いています。
+  </p>
+  <ul>
+    <li>2台構成のNASを使う場合</li>
+    <li>写真や個人データを安全に保存したい場合</li>
+    <li>難しい構成を避けたい場合</li>
+  </ul>
+  <p>
+    容量効率は低くなりますが、
+    シンプルで安心感があるのがRAID 1の強みです。
+  </p>
+</div>
+
+<div class="card">
+  <h2>RAID 5がおすすめなケース</h2>
+  <p>
+    RAID 5は、容量効率と安全性のバランスが良く、
+    4ベイ以上のNASで特に人気のある構成です。
+  </p>
+  <ul>
+    <li>家庭用NASで容量をしっかり確保したい</li>
+    <li>ある程度の安全性もほしい</li>
+    <li>4台以上のディスクを使う予定がある</li>
+  </ul>
+  <p>
+    たとえば、8TBのディスクを4台使う場合、
+    RAID 5なら24TBを使えます。
+    RAID 1より大きな容量を確保しやすいのが魅力です。
+  </p>
+</div>
+
+<div class="card">
+  <h2>RAID 6がおすすめなケース</h2>
+  <p>
+    RAID 6は、2台のディスク故障まで耐えられる構成です。
+    容量効率はRAID 5より下がりますが、
+    より高い安全性を求める場合に向いています。
+  </p>
+  <ul>
+    <li>仕事のデータを保存したい</li>
+    <li>大容量ディスクを複数使いたい</li>
+    <li>長期運用で復旧時のリスクを減らしたい</li>
+  </ul>
+  <p>
+    特に8TB以上の大容量HDDでは、リビルドに時間がかかることがあり、
+    RAID 5よりRAID 6のほうが安心できる場面があります。
+  </p>
+</div>
+
+<div class="card">
+  <h2>RAID 10がおすすめなケース</h2>
+  <p>
+    RAID 10は、ミラーリングとストライピングを組み合わせた構成です。
+    容量効率は半分になりますが、
+    速度と安全性を両立しやすいのが特徴です。
+  </p>
+  <ul>
+    <li>アクセス速度を重視したい</li>
+    <li>仮想マシンや頻繁な読み書きがある</li>
+    <li>業務用NASで安定性も速度も重視したい</li>
+  </ul>
+  <p>
+    一般家庭用ではややオーバースペックなこともありますが、
+    用途によっては非常に有力です。
+  </p>
+</div>
+
+<div class="card">
+  <h2>家庭用NASならどれが現実的？</h2>
+  <p>
+    家庭用NASでは、次のように考えると選びやすいです。
+  </p>
+  <ul>
+    <li><strong>2ベイNAS:</strong> RAID 1が定番</li>
+    <li><strong>4ベイNAS:</strong> RAID 5が人気</li>
+    <li><strong>大事な写真や動画を長期保存:</strong> RAID 6も候補</li>
+  </ul>
+  <p>
+    迷ったら、
+    「まず安全に使いたいならRAID 1」、
+    「容量もほしいならRAID 5」、
+    「より安心したいならRAID 6」
+    という考え方がわかりやすいです。
+  </p>
+</div>
+
+<div class="card">
+  <h2>業務用NASならどう考える？</h2>
+  <p>
+    業務用途では、容量だけでなく、
+    ダウンタイムや復旧時のリスクも重要です。
+  </p>
+  <ul>
+    <li><strong>安全性重視:</strong> RAID 6</li>
+    <li><strong>速度重視:</strong> RAID 10</li>
+    <li><strong>バランス重視:</strong> RAID 5またはRAID 6</li>
+  </ul>
+  <p>
+    特に、停止できない業務システムや、
+    大容量ディスクを使う構成ではRAID 6が有力になります。
+  </p>
+</div>
+
+<div class="card">
+  <h2>RAIDはバックアップではない</h2>
+  <p>
+    NASでRAIDを組んでいても、
+    誤削除、ウイルス感染、ランサムウェア、火災、盗難などからは守れません。
+  </p>
+  <p>
+    RAIDは「ディスク故障に強くする仕組み」であって、
+    バックアップそのものではありません。
+    重要なデータは、外付けディスクやクラウドなどに別途バックアップしておくことが大切です。
+  </p>
 </div>
 
 <div class="card">
   <h2>容量の違いも重要</h2>
   <p>
-    RAIDによって使用可能容量は変わります。
+    RAIDによって使用可能容量は大きく変わります。
+    同じディスク本数でも、RAID 1、RAID 5、RAID 6、RAID 10では使える容量が違います。
   </p>
-  <a href="raid-capacity.html">RAID容量の計算方法を見る →</a>
+  <p>
+    詳しくは <a href="raid-capacity.html"><strong>RAID容量の計算方法</strong></a> をご覧ください。
+  </p>
 </div>
 
 <div class="card">
   <h2>ツールで確認する</h2>
   <p>
-    RAID構成を検討する際は、ツールで容量を確認すると便利です。
+    NASのRAID構成を検討する際は、
+    実際の使用可能容量を計算して比較するとイメージしやすくなります。
   </p>
-  <a href="tool.html"><strong>RAID容量計算ツール</strong></a>
+  <p>
+    <a href="tool.html"><strong>RAID容量計算ツールを使う</strong></a>
+  </p>
 </div>
+
+<div class="card">
+  <h2>RAID 5とRAID 6で迷っている方へ</h2>
+  <p>
+    NASで特によく比較されるのがRAID 5とRAID 6です。
+    容量効率と安全性の違いを詳しく知りたい場合は、
+    以下の比較ページも参考にしてください。
+  </p>
+  <p>
+    <a href="raid5-vs-raid6.html"><strong>RAID 5とRAID 6の違いを見る</strong></a>
+  </p>
+</div>
+
+<p>
+  <a href="index.html">← ホームに戻る</a>
+</p>
 
 </body>
 </html>

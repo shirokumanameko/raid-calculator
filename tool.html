@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAID容量計算ツール｜RAID 0/1/5/6/10対応</title>
-  <meta name="description" content="RAID 0, 1, 5, 6, 10の使用可能容量を簡単に計算できる無料ツールです。ディスク本数と容量を入力するだけで、RAID容量の目安をすぐ確認できます。" />
+  <title>RAID容量計算ツール｜RAID 0/1/5/6/10対応【無料】</title>
+  <meta name="description" content="RAID容量を簡単に計算できる無料ツール。RAID 0、RAID 1、RAID 5、RAID 6、RAID 10に対応。ディスク本数と容量を入力するだけで使用可能容量をすぐ確認できます。" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,12 +21,20 @@
   </nav>
 
   <h1>RAID容量計算ツール</h1>
+
   <p>
-    ディスク本数、1台あたりの容量、RAIDレベルを入力すると、
-    使用可能容量の目安をすぐに計算できます。
+    ディスク本数と容量を入力するだけで、
+    RAIDの使用可能容量をすぐに計算できます。
+  </p>
+
+  <p>
+    RAID 0、RAID 1、RAID 5、RAID 6、RAID 10に対応しており、
+    NASやサーバー、自作PCの構成検討に役立ちます。
   </p>
 
   <div class="card">
+    <h2>RAID容量を計算する</h2>
+
     <label for="raidType">RAIDタイプ</label>
     <select id="raidType">
       <option value="0">RAID 0</option>
@@ -48,67 +56,63 @@
     <div id="result" class="result" style="display:none;"></div>
 
     <div class="note">
-      ※ 同容量のディスクで構成する前提の簡易計算です。<br>
-      ※ 実際の使用可能容量は、ファイルシステムやメーカー表記の違いにより多少前後します。
+      ※ 同容量ディスク前提の簡易計算です<br>
+      ※ 実際の容量は多少前後します
     </div>
   </div>
 
   <div class="card">
-    <h2>RAIDの簡単な目安</h2>
+    <h2>RAID容量の目安</h2>
     <ul>
-      <li>RAID 0: 冗長性なし、容量効率最大</li>
-      <li>RAID 1: ミラーリング、容量効率は低め</li>
-      <li>RAID 5: 1台分を冗長性に使用</li>
-      <li>RAID 6: 2台分を冗長性に使用</li>
-      <li>RAID 10: ミラー + ストライピング、偶数台が前提</li>
+      <li><strong>RAID 0:</strong> 全容量を使える（安全性なし）</li>
+      <li><strong>RAID 1:</strong> 1台分のみ（安全性高い）</li>
+      <li><strong>RAID 5:</strong> 1台分を冗長性に使用</li>
+      <li><strong>RAID 6:</strong> 2台分を冗長性に使用</li>
+      <li><strong>RAID 10:</strong> 半分の容量</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>具体例</h2>
+    <p>8TBのディスクを4台使った場合：</p>
+    <ul>
+      <li>RAID 0 → 32TB</li>
+      <li>RAID 1 → 8TB</li>
+      <li>RAID 5 → 24TB</li>
+      <li>RAID 6 → 16TB</li>
+      <li>RAID 10 → 16TB</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>どのRAIDを選べばいい？</h2>
     <ul>
-      <li><strong>容量を最大化したい:</strong> RAID 0</li>
-      <li><strong>データを安全に保管したい:</strong> RAID 1 / RAID 6</li>
-      <li><strong>バランス重視:</strong> RAID 5</li>
-      <li><strong>速度と安全性の両立:</strong> RAID 10</li>
+      <li>容量重視 → RAID 0 / RAID 5</li>
+      <li>安全性重視 → RAID 1 / RAID 6</li>
+      <li>バランス重視 → RAID 5</li>
+      <li>速度も欲しい → RAID 10</li>
     </ul>
-  </div>
-
-  <div class="card">
-    <h2>RAID容量の計算方法</h2>
-    <p>
-      RAIDの使用可能容量は、RAIDレベルによって異なります。
-    </p>
-
-    <ul>
-      <li><strong>RAID 0:</strong> 全ディスクの合計容量</li>
-      <li><strong>RAID 1:</strong> 1台分の容量</li>
-      <li><strong>RAID 5:</strong> (ディスク数 - 1) × 容量</li>
-      <li><strong>RAID 6:</strong> (ディスク数 - 2) × 容量</li>
-      <li><strong>RAID 10:</strong> (ディスク数 / 2) × 容量</li>
-    </ul>
-
-    <p>
-      例えば、8TBのディスクを4台でRAID 5にした場合、<br>
-      (4 - 1) × 8TB = 24TB です。
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>RAIDの仕組みを知りたい方へ</h2>
-    <p>
-      RAIDの基本や種類について詳しく知りたい場合は、
-      <a href="what-is-raid.html">「RAIDとは？」の解説ページ</a>をご覧ください。
-    </p>
   </div>
 
   <div class="card">
     <h2>RAIDはバックアップではありません</h2>
     <p>
-      RAIDはディスク故障に対する耐性を高める技術ですが、
-      データの誤削除、マルウェア、ランサムウェア、災害などからは守れません。
-      重要なデータは、外付けディスクやクラウドなどに別途バックアップすることをおすすめします。
+      RAIDはディスク故障への耐性を高める仕組みですが、
+      誤削除やウイルス、災害などからはデータを守れません。
     </p>
+    <p>
+      重要なデータは、別途バックアップを取ることが重要です。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>RAIDについて詳しく知る</h2>
+    <ul>
+      <li><a href="what-is-raid.html">RAIDとは？</a></li>
+      <li><a href="raid-capacity.html">RAID容量の計算方法</a></li>
+      <li><a href="raid5-vs-raid6.html">RAID 5とRAID 6の違い</a></li>
+      <li><a href="best-raid-for-nas.html">NASにおすすめのRAID</a></li>
+    </ul>
   </div>
 
   <p>
@@ -139,34 +143,32 @@
         usable = diskCount * diskSize;
       } else if (raidType === "1") {
         if (diskCount < 2) {
-          messageEl.textContent = "RAID 1 は2台以上必要です。";
+          messageEl.textContent = "RAID 1は2台以上必要です。";
           return;
         }
         usable = diskSize;
       } else if (raidType === "5") {
         if (diskCount < 3) {
-          messageEl.textContent = "RAID 5 は3台以上必要です。";
+          messageEl.textContent = "RAID 5は3台以上必要です。";
           return;
         }
         usable = (diskCount - 1) * diskSize;
       } else if (raidType === "6") {
         if (diskCount < 4) {
-          messageEl.textContent = "RAID 6 は4台以上必要です。";
+          messageEl.textContent = "RAID 6は4台以上必要です。";
           return;
         }
         usable = (diskCount - 2) * diskSize;
       } else if (raidType === "10") {
         if (diskCount < 4 || diskCount % 2 !== 0) {
-          messageEl.textContent = "RAID 10 は4台以上の偶数台が必要です。";
+          messageEl.textContent = "RAID 10は偶数台の4台以上が必要です。";
           return;
         }
         usable = (diskCount / 2) * diskSize;
       }
 
       resultEl.style.display = "block";
-      resultEl.innerHTML = `
-        使用可能容量の目安: <strong>${usable.toFixed(2)} TB</strong>
-      `;
+      resultEl.innerHTML = `使用可能容量の目安: <strong>${usable.toFixed(2)} TB</strong>`;
     }
   </script>
 

@@ -4,66 +4,164 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RAID 5 vs RAID 6 | Which One Should You Choose?</title>
-  <meta name="description" content="Compare RAID 5 vs RAID 6 in terms of capacity, performance, and fault tolerance. Learn which RAID level is best for your use case." />
+  <meta name="description" content="Learn the difference between RAID 5 and RAID 6 in a simple way. Compare usable capacity, performance, fault tolerance, rebuild risk, and which RAID level is better for your NAS or server." />
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="tool.html">Calculator</a>
-  <a href="what-is-raid.html">What is RAID?</a>
-</nav>
-
-<h1>RAID 5 vs RAID 6: Which One Should You Choose?</h1>
-
-<p>
-RAID 5 and RAID 6 are popular choices for NAS and servers.
-This guide explains the key differences so you can choose the right one.
-</p>
-
-<div class="card">
-  <h2>Key Difference</h2>
-  <ul>
-    <li><strong>RAID 5:</strong> Can tolerate 1 disk failure</li>
-    <li><strong>RAID 6:</strong> Can tolerate 2 disk failures</li>
-  </ul>
-</div>
-
-<div class="card">
-  <h2>Capacity Comparison</h2>
-  <ul>
-    <li>RAID 5 → (N - 1) × disk size</li>
-    <li>RAID 6 → (N - 2) × disk size</li>
-  </ul>
-  <p>
-    <a href="raid-capacity.html">Learn RAID capacity calculation →</a>
+  <p class="lang-switch">
+    🌍 <a href="../raid5-vs-raid6.html">日本語はこちら</a>
   </p>
-</div>
 
-<div class="card">
-  <h2>Performance</h2>
+  <nav>
+    <a href="../index.html">Japanese</a>
+    <a href="index.html">Home</a>
+    <a href="tool.html">Calculator</a>
+    <a href="what-is-raid.html">What Is RAID?</a>
+  </nav>
+
+  <h1>RAID 5 vs RAID 6: Which One Should You Choose?</h1>
+
   <p>
-    RAID 5 is generally faster for writes because it uses less parity.
-    RAID 6 provides better safety but slightly slower write performance.
+    RAID 5 and RAID 6 are two of the most common RAID levels for NAS systems and servers.
+    Both provide redundancy, but they differ in usable capacity, write performance, and fault tolerance.
+    This guide explains the differences in a simple way so you can choose the right one for your needs.
   </p>
-</div>
 
-<div class="card">
-  <h2>Which Should You Choose?</h2>
-  <ul>
-    <li>Choose RAID 5 → Better capacity efficiency</li>
-    <li>Choose RAID 6 → Higher data safety</li>
-  </ul>
-</div>
+  <div class="card-important">
+    <h2>Quick Answer: RAID 5 or RAID 6?</h2>
+    <ul>
+      <li><strong>Choose RAID 5</strong> if you want better usable capacity with 4 to 5 disks.</li>
+      <li><strong>Choose RAID 6</strong> if you want higher protection for important data.</li>
+      <li><strong>RAID 6 is often the safer choice</strong> for large-capacity drives such as 8TB or more.</li>
+    </ul>
+  </div>
 
-<div class="card">
-  <h2>Try the Calculator</h2>
+  <div class="card">
+    <h2>Basic Difference</h2>
+    <ul>
+      <li><strong>RAID 5:</strong> Can survive 1 disk failure</li>
+      <li><strong>RAID 6:</strong> Can survive 2 disk failures</li>
+    </ul>
+    <p>
+      This is the biggest difference between the two.
+      RAID 6 sacrifices more usable space, but it gives you an extra layer of protection.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>RAID 5 vs RAID 6 Comparison</h2>
+    <table>
+      <tr>
+        <th>Category</th>
+        <th>RAID 5</th>
+        <th>RAID 6</th>
+      </tr>
+      <tr>
+        <td>Fault tolerance</td>
+        <td>Up to 1 failed disk</td>
+        <td>Up to 2 failed disks</td>
+      </tr>
+      <tr>
+        <td>Usable capacity</td>
+        <td>Higher</td>
+        <td>Lower</td>
+      </tr>
+      <tr>
+        <td>Write performance</td>
+        <td>Usually better</td>
+        <td>Usually slightly slower</td>
+      </tr>
+      <tr>
+        <td>Best for</td>
+        <td>Home NAS, capacity efficiency</td>
+        <td>Critical data, safer long-term storage</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Usable Capacity Difference</h2>
+    <ul>
+      <li><strong>RAID 5:</strong> (Number of disks - 1) × disk size</li>
+      <li><strong>RAID 6:</strong> (Number of disks - 2) × disk size</li>
+    </ul>
+    <p>
+      Example with four 8TB disks:
+    </p>
+    <ul>
+      <li><strong>RAID 5:</strong> (4 - 1) × 8TB = 24TB</li>
+      <li><strong>RAID 6:</strong> (4 - 2) × 8TB = 16TB</li>
+    </ul>
+    <p>
+      If you want a more detailed explanation, see
+      <a href="raid-capacity.html"><strong>RAID Capacity Calculation Guide</strong></a>.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Why Is RAID 5 Sometimes Considered Risky?</h2>
+    <p>
+      RAID 5 can handle one disk failure, but if another disk fails during the rebuild process,
+      the entire array may be lost.
+    </p>
+    <p>
+      This becomes more important with larger hard drives.
+      As drive capacity increases, rebuild time often becomes longer, and the array stays in a more vulnerable state for longer.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Typical Rebuild Time</h2>
+    <ul>
+      <li><strong>4TB HDD:</strong> Several hours to around 10 hours</li>
+      <li><strong>8TB HDD:</strong> Often 10 hours or more</li>
+      <li><strong>16TB HDD:</strong> Sometimes more than a full day</li>
+    </ul>
+    <p>
+      During rebuild, the remaining disks are under heavy load.
+      That is one reason why RAID 6 is often recommended for large drives and important data.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Performance Difference</h2>
+    <p>
+      RAID 5 usually has slightly better write performance because it uses single parity.
+      RAID 6 uses double parity, which improves safety but can reduce write speed somewhat.
+    </p>
+    <p>
+      For many home NAS users, the difference may not be huge in daily use,
+      but in business or high-write environments it can matter more.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Which One Should You Choose?</h2>
+    <ul>
+      <li><strong>Choose RAID 5</strong> if usable capacity matters most and you want a balanced option.</li>
+      <li><strong>Choose RAID 6</strong> if data safety matters more than capacity efficiency.</li>
+      <li><strong>Choose RAID 6</strong> if you use many disks or large HDDs and want lower rebuild risk.</li>
+    </ul>
+  </div>
+
+  <div class="highlight-box">
+    <a href="tool.html">Compare RAID 5 and RAID 6 Capacity Now →</a>
+  </div>
+
+  <div class="card">
+    <h2>Try the Calculator</h2>
+    <p>
+      The easiest way to understand the capacity difference is to calculate it with your own disk count and disk size.
+    </p>
+    <p>
+      <a href="tool.html"><strong>Use the RAID Capacity Calculator</strong></a>
+    </p>
+  </div>
+
   <p>
-    Use our tool to compare RAID capacity instantly.
+    <a href="index.html">← Back to Home</a>
   </p>
-  <a href="tool.html"><strong>Use RAID Calculator</strong></a>
-</div>
 
 </body>
 </html>

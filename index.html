@@ -3,17 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAID容量計算ツールとRAID解説サイト</title>
-  <meta name="description" content="RAID容量計算ツールとRAIDの基礎解説をまとめたサイトです。RAID 0, 1, 5, 6, 10 の容量計算や選び方をわかりやすく紹介します。" />
+  <title>RAID容量計算ツールとRAID解説サイト | RAID 0/1/5/6/10対応</title>
+  <meta name="description" content="RAID容量計算ツールとRAIDの基礎解説をまとめたサイトです。RAID 0、RAID 1、RAID 5、RAID 6、RAID 10の容量計算、違い、選び方をわかりやすく紹介します。" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <p class="lang-switch">
+    🌍 <a href="en/index.html">Switch to English</a>
+  </p>
+
+  <nav>
+    <a href="index.html">ホーム</a>
+    <a href="tool.html">計算ツール</a>
+    <a href="what-is-raid.html">RAIDとは？</a>
+    <a href="en/index.html">English</a>
+  </nav>
 
   <section class="hero">
     <h1>RAID容量計算ツールとRAID解説</h1>
     <p>
       RAID 0 / 1 / 5 / 6 / 10 の使用可能容量を簡単に計算できるツールと、
-      RAIDの基本をわかりやすく解説するサイトです。
+      RAIDの基本をわかりやすく学べる解説ページをまとめたサイトです。
     </p>
     <p>
       NAS、サーバー、自作PCのストレージ構成を考えるときに役立ちます。
@@ -23,6 +34,16 @@
       <a class="button-secondary" href="what-is-raid.html">RAIDとは？を読む</a>
     </p>
   </section>
+
+  <div class="card-important">
+    <h2>このサイトでできること</h2>
+    <ul>
+      <li>RAID 0 / 1 / 5 / 6 / 10 の使用可能容量をすぐに計算できる</li>
+      <li>RAIDの基本、種類、違いを初心者向けに理解できる</li>
+      <li>RAID 5とRAID 6の違いや、NAS向けのおすすめ構成を比較できる</li>
+      <li>日本語版と英語版の両方で情報を確認できる</li>
+    </ul>
+  </div>
 
   <div class="grid">
     <div class="card">
@@ -37,37 +58,74 @@
     <div class="card">
       <h2>RAIDとは？</h2>
       <p>
-        RAIDの仕組みや種類、RAID 0 / 1 / 5 / 6 / 10 の違い、
-        用途ごとの選び方を初心者向けにまとめています。
+        RAIDの仕組み、RAID 0 / 1 / 5 / 6 / 10 の違い、
+        メリット・デメリット、用途ごとの選び方をわかりやすく解説しています。
       </p>
       <p><a href="what-is-raid.html">解説ページを見る →</a></p>
+    </div>
+
+    <div class="card">
+      <h2>RAID容量の計算方法</h2>
+      <p>
+        RAIDレベルごとの計算式や具体例を使って、
+        RAID容量の考え方を初心者向けにわかりやすく説明しています。
+      </p>
+      <p><a href="raid-capacity.html">計算方法を見る →</a></p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h2>RAID 5とRAID 6の違い</h2>
+      <p>
+        容量効率、耐障害性、リビルド時の考え方など、
+        RAID 5とRAID 6の違いを比較しながら解説しています。
+      </p>
+      <p><a href="raid5-vs-raid6.html">比較ページを見る →</a></p>
+    </div>
+
+    <div class="card">
+      <h2>NASにおすすめのRAID構成</h2>
+      <p>
+        家庭用NAS、業務用NAS、容量重視、安全性重視など、
+        用途ごとにおすすめのRAID構成を紹介しています。
+      </p>
+      <p><a href="best-raid-for-nas.html">おすすめ構成を見る →</a></p>
     </div>
 
     <div class="card">
       <h2>English Pages</h2>
       <p>
         英語版のRAID容量計算ツールと解説ページも用意しています。
+        海外向けに共有したい場合にも便利です。
       </p>
       <p><a href="en/index.html">English version →</a></p>
     </div>
   </div>
 
   <div class="card">
-    <h2>このサイトでできること</h2>
-    <ul>
-      <li>RAID 0 / 1 / 5 / 6 / 10 の容量をすぐ計算できる</li>
-      <li>RAIDの基本や違いをざっくり理解できる</li>
-      <li>日本語と英語の両方でページを見られる</li>
-    </ul>
-  </div>
-
-  <div class="card">
     <h2>こんな人におすすめ</h2>
     <ul>
       <li>NASのRAID構成を考えている人</li>
-      <li>RAID 5 や RAID 6 の使用可能容量を知りたい人</li>
+      <li>RAID 5やRAID 6の使用可能容量を知りたい人</li>
       <li>自作PCやサーバーでどのRAIDを選ぶか迷っている人</li>
       <li>RAIDの基本を短時間で理解したい人</li>
+      <li>RAID容量を手早く確認したい人</li>
+    </ul>
+  </div>
+
+  <div class="highlight-box">
+    <a href="tool.html">RAID容量を今すぐ計算する →</a>
+  </div>
+
+  <div class="card">
+    <h2>まず何を見ればいい？</h2>
+    <ul>
+      <li><strong>すぐに容量を知りたい:</strong> <a href="tool.html">RAID容量計算ツール</a></li>
+      <li><strong>RAIDの基本から知りたい:</strong> <a href="what-is-raid.html">RAIDとは？</a></li>
+      <li><strong>計算式や具体例を見たい:</strong> <a href="raid-capacity.html">RAID容量の計算方法</a></li>
+      <li><strong>RAID 5とRAID 6で迷っている:</strong> <a href="raid5-vs-raid6.html">RAID 5とRAID 6の違い</a></li>
+      <li><strong>NAS向けのおすすめを知りたい:</strong> <a href="best-raid-for-nas.html">NASにおすすめのRAID構成</a></li>
     </ul>
   </div>
 
@@ -79,15 +137,16 @@
       <li><a href="raid-capacity.html">RAID容量の計算方法</a></li>
       <li><a href="raid5-vs-raid6.html">RAID 5とRAID 6の違い</a></li>
       <li><a href="best-raid-for-nas.html">NASにおすすめのRAID構成</a></li>
+      <li><a href="en/index.html">英語版トップページ</a></li>
     </ul>
   </div>
 
   <footer>
-    <ul>
+    <p>
       <a href="privacy-policy.html">プライバシーポリシー</a><br>
       <a href="contact.html">お問い合わせ</a>
-    </ul>
-    © RAID Calculator Guide
+    </p>
+    <p>© RAID Calculator Guide</p>
   </footer>
 
 </body>

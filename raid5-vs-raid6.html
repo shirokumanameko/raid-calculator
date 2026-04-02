@@ -3,9 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAID 5とRAID 6の違い｜どっちを選ぶべきか解説</title>
-  <meta name="description" content="RAID 5とRAID 6の違いを初心者向けに解説。容量、速度、耐障害性の違いとおすすめの選び方を紹介します。" />
+  <title>RAID 5とRAID 6の違い｜どっちを選ぶべきか徹底解説</title>
+  <meta name="description" content="RAID 5とRAID 6の違いを初心者向けにわかりやすく解説。容量・速度・耐障害性・リビルド時間の違いと、どちらを選ぶべきかを詳しく紹介します。" />
   <link rel="stylesheet" href="style.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
 </head>
 <body>
 
@@ -19,8 +33,18 @@
 
 <p>
 RAID 5とRAID 6は、NASやサーバーでよく使われるRAID構成です。
-どちらも冗長性を持っていますが、性能や安全性に違いがあります。
+どちらも冗長性を持っていますが、容量・性能・安全性に違いがあります。
+この記事では、それぞれの特徴と選び方をわかりやすく解説します。
 </p>
+
+<div class="card">
+  <h2>結論：どっちを選ぶべき？</h2>
+  <ul>
+    <li>ディスク4〜5台・容量重視 → RAID 5</li>
+    <li>6台以上・重要データ → RAID 6</li>
+    <li>大容量ディスク（8TB以上） → RAID 6推奨</li>
+  </ul>
+</div>
 
 <div class="card">
   <h2>基本的な違い</h2>
@@ -28,6 +52,17 @@ RAID 5とRAID 6は、NASやサーバーでよく使われるRAID構成です。
     <li><strong>RAID 5:</strong> 1台のディスク故障まで耐えられる</li>
     <li><strong>RAID 6:</strong> 2台のディスク故障まで耐えられる</li>
   </ul>
+</div>
+
+<div class="card">
+  <h2>RAID 5とRAID 6の比較</h2>
+  <table>
+    <tr><th>項目</th><th>RAID 5</th><th>RAID 6</th></tr>
+    <tr><td>耐障害性</td><td>1台まで</td><td>2台まで</td></tr>
+    <tr><td>容量効率</td><td>高い</td><td>やや低い</td></tr>
+    <tr><td>書き込み速度</td><td>速い</td><td>やや遅い</td></tr>
+    <tr><td>おすすめ用途</td><td>家庭用・個人用途</td><td>重要データ・業務用途</td></tr>
+  </table>
 </div>
 
 <div class="card">
@@ -42,10 +77,26 @@ RAID 5とRAID 6は、NASやサーバーでよく使われるRAID構成です。
 </div>
 
 <div class="card">
-  <h2>性能の違い</h2>
+  <h2>RAID 5が危険と言われる理由</h2>
   <p>
-    RAID 5はパリティが1つなので書き込みが比較的速いです。
-    RAID 6は安全性が高い代わりに、書き込み性能はやや低下します。
+    RAID 5は1台のディスク故障まで耐えられますが、
+    リビルド（復旧）中にもう1台故障すると、すべてのデータが失われます。
+  </p>
+  <p>
+    特に大容量ディスク（8TB以上）では復旧時間が長くなり、
+    その間に故障するリスクが高くなるため注意が必要です。
+  </p>
+</div>
+
+<div class="card">
+  <h2>リビルド時間の目安</h2>
+  <ul>
+    <li>4TB HDD → 数時間〜10時間程度</li>
+    <li>8TB HDD → 10時間以上</li>
+    <li>16TB HDD → 1日以上かかることも</li>
+  </ul>
+  <p>
+    リビルド中はディスク負荷が高く、故障リスクが上がります。
   </p>
 </div>
 
@@ -58,11 +109,13 @@ RAID 5とRAID 6は、NASやサーバーでよく使われるRAID構成です。
 </div>
 
 <div class="card">
-  <h2>ツールで確認する</h2>
+  <h2>ツールで容量を確認する</h2>
   <p>
-    RAID容量をすぐ確認したい場合は、以下のツールを使ってください。
+    RAID 5とRAID 6の容量の違いは、実際に計算してみるとイメージしやすいです。
   </p>
-  <a href="tool.html"><strong>RAID容量計算ツールを使う</strong></a>
+  <p>
+    <a href="tool.html"><strong>RAID容量計算ツールを使う</strong></a>
+  </p>
 </div>
 
 </body>

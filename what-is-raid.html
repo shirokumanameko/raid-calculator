@@ -3,9 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAIDとは？仕組み・種類・選び方を初心者向けに解説</title>
-  <meta name="description" content="RAIDとは何かを初心者向けにわかりやすく解説します。RAID 0, 1, 5, 6, 10の違い、メリット・デメリット、用途ごとの選び方までまとめています。" />
+  <title>RAIDとは？仕組み・種類・選び方を初心者向けにわかりやすく解説</title>
+  <meta name="description" content="RAIDとは何かを初心者向けにわかりやすく解説。RAID 0、RAID 1、RAID 5、RAID 6、RAID 10の違い、メリット・デメリット、選び方、バックアップとの違いまでまとめています。" />
   <link rel="stylesheet" href="style.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+  </style>
 </head>
 <body>
 
@@ -20,12 +35,19 @@
     <a href="en/index.html">English</a>
   </nav>
 
-  <h1>RAIDとは？仕組み・種類・RAIDの違いをわかりやすく解説</h1>
+  <h1>RAIDとは？仕組み・種類・選び方を初心者向けにわかりやすく解説</h1>
 
   <p>
-    RAIDは、複数のディスクをまとめて使うことで、
-    容量・速度・故障耐性を向上させる仕組みです。
+    RAIDは、複数のHDDやSSDを組み合わせて、
+    容量・速度・故障耐性を高める仕組みです。
     NASやサーバー、自作PCなどでよく使われます。
+  </p>
+
+  <p>
+    「RAIDって何？」
+    「RAID 1やRAID 5ってどう違うの？」
+    「自分にはどのRAIDが向いているの？」
+    という方に向けて、この記事では基本からわかりやすく解説します。
   </p>
 
   <p>
@@ -34,12 +56,29 @@
   </p>
 
   <div class="card">
+    <h2>結論：RAIDは「容量・速度・安全性」のバランスを変える仕組み</h2>
+    <p>
+      RAIDは、複数のディスクを1つのまとまりとして使う技術です。
+      目的によって、容量を優先する構成、速度を優先する構成、安全性を優先する構成があります。
+    </p>
+    <ul>
+      <li><strong>容量重視:</strong> RAID 0</li>
+      <li><strong>安全性重視:</strong> RAID 1、RAID 6</li>
+      <li><strong>バランス重視:</strong> RAID 5</li>
+      <li><strong>速度と安全性の両立:</strong> RAID 10</li>
+    </ul>
+  </div>
+
+  <div class="card">
     <h2>RAIDとは</h2>
     <p>
       RAID は "Redundant Array of Independent Disks" の略で、
-      複数のHDDやSSDを1つのまとまりとして扱う技術です。
-      RAIDを使うことで、単に容量を増やすだけでなく、
-      読み書きを速くしたり、ディスク故障時の安全性を高めたりできます。
+      複数のディスクをまとめて1つのストレージのように使う技術です。
+    </p>
+    <p>
+      RAIDを使うことで、単純に容量を増やすだけでなく、
+      データの読み書きを速くしたり、
+      一部のディスクが故障してもデータを保持できるようにしたりできます。
     </p>
   </div>
 
@@ -50,6 +89,25 @@
       <li><strong>速度を上げたい:</strong> データを分散して高速に読み書きできる場合がある</li>
       <li><strong>故障に強くしたい:</strong> 一部のRAIDではディスク故障時もデータを保持できる</li>
     </ul>
+    <p>
+      つまりRAIDは、単なる「ディスクを増やす方法」ではなく、
+      ストレージの使い方そのものを最適化する考え方です。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>RAIDの基本的な考え方</h2>
+    <p>
+      RAIDには主に3つの考え方があります。
+    </p>
+    <ul>
+      <li><strong>ストライピング:</strong> データを複数ディスクに分散して速度を上げる</li>
+      <li><strong>ミラーリング:</strong> 同じデータを複数ディスクに複製して安全性を高める</li>
+      <li><strong>パリティ:</strong> 故障時の復元に使う情報を保存して冗長性を持たせる</li>
+    </ul>
+    <p>
+      RAIDの種類は、これらをどう組み合わせるかで決まります。
+    </p>
   </div>
 
   <div class="card">
@@ -57,50 +115,147 @@
 
     <h3>RAID 0</h3>
     <p>
-      複数ディスクにデータを分散して保存する方式です。
-      速度と容量効率は高いですが、1台でも故障すると全データを失います。
+      RAID 0は、データを複数ディスクに分散して保存する方式です。
+      容量効率と速度は高いですが、冗長性はありません。
+      1台でも故障すると全データを失います。
     </p>
 
     <h3>RAID 1</h3>
     <p>
-      同じデータを複数ディスクに複製して保存する方式です。
-      安全性は高いですが、使用可能容量は小さくなります。
+      RAID 1は、同じデータを複数ディスクに複製して保存する方式です。
+      安全性は高いですが、使用可能容量は少なくなります。
     </p>
 
     <h3>RAID 5</h3>
     <p>
-      データとパリティ情報を分散して保存する方式です。
+      RAID 5は、データとパリティ情報を分散して保存する方式です。
       容量効率と安全性のバランスがよく、家庭用NASでも人気があります。
     </p>
 
     <h3>RAID 6</h3>
     <p>
-      RAID 5よりさらに冗長性を高めた方式で、2台までの故障に耐えられます。
-      その分、使用可能容量は減ります。
+      RAID 6は、RAID 5よりさらに冗長性を高めた方式で、
+      2台までのディスク故障に耐えられます。
+      その分、使用可能容量は少なくなります。
     </p>
 
     <h3>RAID 10</h3>
     <p>
-      RAID 1 と RAID 0 を組み合わせた方式です。
-      速度と安全性の両立が可能ですが、必要ディスク数が多くなります。
+      RAID 10は、RAID 1 と RAID 0 を組み合わせた方式です。
+      速度と安全性を両立しやすいですが、必要なディスク数が多くなります。
     </p>
   </div>
 
   <div class="card">
-    <h2>用途ごとのおすすめ</h2>
+    <h2>RAIDごとの違いを表で比較</h2>
+    <table>
+      <tr>
+        <th>RAIDレベル</th>
+        <th>容量効率</th>
+        <th>速度</th>
+        <th>故障耐性</th>
+        <th>特徴</th>
+      </tr>
+      <tr>
+        <td>RAID 0</td>
+        <td>高い</td>
+        <td>速い</td>
+        <td>なし</td>
+        <td>容量と速度重視</td>
+      </tr>
+      <tr>
+        <td>RAID 1</td>
+        <td>低い</td>
+        <td>普通</td>
+        <td>高い</td>
+        <td>シンプルで安全</td>
+      </tr>
+      <tr>
+        <td>RAID 5</td>
+        <td>高め</td>
+        <td>読み出しは速い</td>
+        <td>1台故障まで</td>
+        <td>バランスが良い</td>
+      </tr>
+      <tr>
+        <td>RAID 6</td>
+        <td>中程度</td>
+        <td>書き込みはやや不利</td>
+        <td>2台故障まで</td>
+        <td>安全性が高い</td>
+      </tr>
+      <tr>
+        <td>RAID 10</td>
+        <td>中程度</td>
+        <td>速い</td>
+        <td>高い</td>
+        <td>速度と安全性の両立</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>どのRAIDを選べばいい？</h2>
     <ul>
-      <li><strong>家庭用NAS:</strong> RAID 1 または RAID 5</li>
-      <li><strong>安全性重視の保存:</strong> RAID 1, RAID 6</li>
-      <li><strong>速度重視の作業:</strong> RAID 0, RAID 10</li>
-      <li><strong>バランス重視:</strong> RAID 5</li>
+      <li><strong>容量を最大化したい:</strong> RAID 0</li>
+      <li><strong>家庭用NASでバランスよく使いたい:</strong> RAID 5</li>
+      <li><strong>重要なデータを安全に保存したい:</strong> RAID 1 または RAID 6</li>
+      <li><strong>速度も安全性もほしい:</strong> RAID 10</li>
+    </ul>
+    <p>
+      迷ったときは、家庭用NASならRAID 1かRAID 5、
+      仕事用や重要データを扱うならRAID 6やRAID 10を検討すると考えやすいです。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>家庭用NASではどれが人気？</h2>
+    <p>
+      家庭用NASでは、RAID 1とRAID 5がよく選ばれます。
+    </p>
+    <ul>
+      <li><strong>2台構成:</strong> RAID 1が定番</li>
+      <li><strong>4台以上:</strong> RAID 5が人気</li>
+      <li><strong>重要データが多い:</strong> RAID 6も候補</li>
+    </ul>
+    <p>
+      写真、動画、バックアップデータなどを長期保存する場合は、
+      容量だけでなく復旧時の安全性も考えることが大切です。
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>RAIDのメリット</h2>
+    <ul>
+      <li>複数のディスクをまとめて使える</li>
+      <li>容量を増やせる</li>
+      <li>読み書き速度が向上する場合がある</li>
+      <li>一部のRAIDではディスク故障時もデータを維持できる</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>RAIDのデメリット</h2>
+    <ul>
+      <li>RAIDレベルによっては使用可能容量が減る</li>
+      <li>構成によっては書き込み速度が低下することがある</li>
+      <li>故障時の復旧に時間がかかることがある</li>
+      <li>RAIDを組んでもバックアップの代わりにはならない</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>RAIDはバックアップではない</h2>
     <p>
-      RAIDはディスク故障への耐性を高める仕組みですが、
+      ここはとても重要です。
+      RAIDは、ディスク故障への耐性を高める仕組みですが、
       誤削除、ウイルス感染、ランサムウェア、火災、盗難などからは守れません。
+    </p>
+    <p>
+      たとえばRAID 1やRAID 5を使っていても、
+      間違ってファイルを削除すれば、その削除はそのまま反映されます。
+    </p>
+    <p>
       重要なデータは、外付けディスクやクラウドなどに別途バックアップする必要があります。
     </p>
   </div>
@@ -108,7 +263,7 @@
   <div class="card">
     <h2>RAID容量を知りたい場合</h2>
     <p>
-      RAIDの使用可能容量はRAIDレベルによって異なります。
+      RAIDの使用可能容量は、RAIDレベルによって大きく異なります。
       詳しく知りたい方は、
       <a href="raid-capacity.html"><strong>RAID容量の計算方法</strong></a>
       をご覧ください。
@@ -119,6 +274,18 @@
     </p>
     <p>
       <a href="tool.html"><strong>RAID容量計算ツールを使う</strong></a>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>RAID 5とRAID 6の違いを詳しく知りたい方へ</h2>
+    <p>
+      家庭用NASやサーバーでよく比較されるのがRAID 5とRAID 6です。
+      容量効率・安全性・選び方の違いを詳しく知りたい場合は、
+      以下の比較ページも参考にしてください。
+    </p>
+    <p>
+      <a href="raid5-vs-raid6.html"><strong>RAID 5とRAID 6の違いを見る</strong></a>
     </p>
   </div>
 

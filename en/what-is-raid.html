@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>What Is RAID? Types, Differences, and How to Choose</title>
-  <meta name="description" content="Learn what RAID is in a simple way. Understand RAID 0, 1, 5, 6, and 10, their differences, advantages, and how to choose the right RAID setup." />
+  <meta name="description" content="Learn what RAID is in a simple way. Understand RAID 0, RAID 1, RAID 5, RAID 6, and RAID 10, their differences, advantages, disadvantages, and how to choose the right RAID setup." />
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -14,18 +14,23 @@
   </p>
 
   <nav>
-    <a href="../index.html">日本語</a>
+    <a href="../index.html">Japanese</a>
     <a href="index.html">Home</a>
     <a href="tool.html">Calculator</a>
-    <a href="what-is-raid.html">What is RAID?</a>
+    <a href="what-is-raid.html">What Is RAID?</a>
   </nav>
 
   <h1>What Is RAID? A Beginner-Friendly Guide</h1>
 
   <p>
-    RAID is a technology that combines multiple disks to improve capacity,
-    performance, and fault tolerance. It is commonly used in NAS systems,
-    servers, and custom-built PCs.
+    RAID is a way of combining multiple hard drives or SSDs to improve storage capacity,
+    performance, or fault tolerance.
+    It is commonly used in NAS systems, servers, and even some custom-built PCs.
+  </p>
+
+  <p>
+    If you are wondering what RAID means, how RAID 0, RAID 1, RAID 5, RAID 6, and RAID 10 differ,
+    or which RAID level is best for your setup, this guide explains the basics in a simple way.
   </p>
 
   <p>
@@ -33,23 +38,59 @@
     🌍 <a href="../tool.html">日本語版の計算ツールはこちら</a>
   </p>
 
+  <div class="card-important">
+    <h2>Quick Answer: What RAID Really Does</h2>
+    <p>
+      RAID changes the balance between three things:
+      <strong>capacity</strong>, <strong>speed</strong>, and <strong>data protection</strong>.
+    </p>
+    <ul>
+      <li><strong>RAID 0:</strong> Focuses on capacity and speed</li>
+      <li><strong>RAID 1:</strong> Focuses on simplicity and safety</li>
+      <li><strong>RAID 5:</strong> Balances capacity and protection</li>
+      <li><strong>RAID 6:</strong> Prioritizes stronger protection</li>
+      <li><strong>RAID 10:</strong> Combines speed and redundancy</li>
+    </ul>
+  </div>
+
   <div class="card">
     <h2>What Is RAID?</h2>
     <p>
-      RAID stands for "Redundant Array of Independent Disks".
-      It allows multiple HDDs or SSDs to be treated as a single storage system.
-      With RAID, you can increase capacity, improve read/write performance,
-      and enhance data protection against disk failures.
+      RAID stands for <strong>Redundant Array of Independent Disks</strong>.
+      It is a technology that lets multiple drives work together as one storage system.
+    </p>
+    <p>
+      Depending on the RAID level, you can use RAID to increase usable storage,
+      improve read and write performance, or keep your data available even if one or more drives fail.
     </p>
   </div>
 
   <div class="card">
     <h2>Why Use RAID?</h2>
     <ul>
-      <li><strong>Increase capacity:</strong> Combine multiple disks into one large storage pool</li>
-      <li><strong>Improve performance:</strong> Distribute data for faster read/write speeds</li>
-      <li><strong>Enhance reliability:</strong> Some RAID levels protect against disk failure</li>
+      <li><strong>Increase capacity:</strong> Combine several disks into one larger storage pool</li>
+      <li><strong>Improve speed:</strong> Split data across disks for faster access in some RAID levels</li>
+      <li><strong>Improve fault tolerance:</strong> Keep data available even if a disk fails</li>
     </ul>
+    <p>
+      In other words, RAID is not just about using more disks.
+      It is about choosing how your storage system should behave.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Core RAID Concepts</h2>
+    <p>
+      Most RAID levels are built from three basic ideas:
+    </p>
+    <ul>
+      <li><strong>Striping:</strong> Splitting data across multiple disks to improve performance</li>
+      <li><strong>Mirroring:</strong> Storing the same data on multiple disks for better safety</li>
+      <li><strong>Parity:</strong> Storing extra information that helps recover data if a disk fails</li>
+    </ul>
+    <p>
+      Each RAID level uses these ideas in a different way.
+    </p>
   </div>
 
   <div class="card">
@@ -57,64 +98,179 @@
 
     <h3>RAID 0</h3>
     <p>
-      Data is striped across multiple disks. It offers high performance and full capacity usage,
-      but no redundancy—if one disk fails, all data is lost.
+      RAID 0 stripes data across multiple disks.
+      It can improve performance and uses the full capacity of all drives,
+      but it provides no redundancy.
+      If one disk fails, all data in the array is lost.
     </p>
 
     <h3>RAID 1</h3>
     <p>
-      Data is mirrored across disks. It provides strong data protection,
-      but usable capacity is reduced.
+      RAID 1 mirrors the same data across disks.
+      It is simple and safe, which makes it a popular choice for 2-bay NAS devices.
+      The downside is that usable capacity is limited to one disk.
     </p>
 
     <h3>RAID 5</h3>
     <p>
-      Data and parity are distributed across disks.
-      It offers a good balance of performance, capacity, and redundancy,
-      making it popular for home NAS systems.
+      RAID 5 stripes data and stores parity across the array.
+      It offers a good balance of usable capacity and fault tolerance,
+      which is why it is popular for home NAS systems with four or more drives.
     </p>
 
     <h3>RAID 6</h3>
     <p>
-      Similar to RAID 5 but with double parity,
-      allowing up to two disk failures. Usable capacity is lower.
+      RAID 6 is similar to RAID 5, but it uses double parity.
+      That means it can survive two disk failures instead of one.
+      The tradeoff is lower usable capacity and somewhat slower writes.
     </p>
 
     <h3>RAID 10</h3>
     <p>
-      A combination of RAID 1 and RAID 0.
-      It provides both performance and redundancy,
-      but requires more disks.
+      RAID 10 combines mirroring and striping.
+      It offers strong performance and good redundancy,
+      but it requires more disks and only half of the total raw capacity is usable.
     </p>
   </div>
 
   <div class="card">
-    <h2>Which RAID Should You Choose?</h2>
+    <h2>RAID Comparison Table</h2>
+    <table>
+      <tr>
+        <th>RAID Level</th>
+        <th>Capacity Efficiency</th>
+        <th>Performance</th>
+        <th>Fault Tolerance</th>
+        <th>Main Strength</th>
+      </tr>
+      <tr>
+        <td>RAID 0</td>
+        <td>High</td>
+        <td>Fast</td>
+        <td>None</td>
+        <td>Capacity and speed</td>
+      </tr>
+      <tr>
+        <td>RAID 1</td>
+        <td>Low</td>
+        <td>Moderate</td>
+        <td>High</td>
+        <td>Simple and safe</td>
+      </tr>
+      <tr>
+        <td>RAID 5</td>
+        <td>High</td>
+        <td>Good overall</td>
+        <td>One disk failure</td>
+        <td>Balanced option</td>
+      </tr>
+      <tr>
+        <td>RAID 6</td>
+        <td>Medium</td>
+        <td>Writes can be slower</td>
+        <td>Two disk failures</td>
+        <td>Higher protection</td>
+      </tr>
+      <tr>
+        <td>RAID 10</td>
+        <td>Medium</td>
+        <td>Fast</td>
+        <td>High</td>
+        <td>Speed and redundancy</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>How to Choose the Right RAID Level</h2>
     <ul>
-      <li><strong>Maximize capacity:</strong> RAID 0</li>
-      <li><strong>High data safety:</strong> RAID 1 or RAID 6</li>
-      <li><strong>Balanced option:</strong> RAID 5</li>
-      <li><strong>Performance + safety:</strong> RAID 10</li>
+      <li><strong>Choose RAID 0</strong> if you want maximum capacity and speed, and can accept no redundancy.</li>
+      <li><strong>Choose RAID 1</strong> if you want a simple and safe option for a small NAS.</li>
+      <li><strong>Choose RAID 5</strong> if you want a good balance between capacity and safety.</li>
+      <li><strong>Choose RAID 6</strong> if your data is important and you want extra protection.</li>
+      <li><strong>Choose RAID 10</strong> if you want strong performance and strong redundancy.</li>
+    </ul>
+    <p>
+      There is no single best RAID level for everyone.
+      The right choice depends on what matters most in your storage setup.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Which RAID Level Is Best for Home NAS?</h2>
+    <p>
+      For home NAS use, RAID 1 and RAID 5 are often the most practical options.
+    </p>
+    <ul>
+      <li><strong>2-bay NAS:</strong> RAID 1 is the standard choice</li>
+      <li><strong>4-bay NAS:</strong> RAID 5 is a common and balanced option</li>
+      <li><strong>Important family photos or long-term storage:</strong> RAID 6 may also be worth considering</li>
+    </ul>
+    <p>
+      If you are using large hard drives and care about rebuild safety,
+      RAID 6 can be more attractive than RAID 5.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Advantages of RAID</h2>
+    <ul>
+      <li>Lets multiple disks work together as one storage system</li>
+      <li>Can increase usable capacity</li>
+      <li>Can improve performance in some configurations</li>
+      <li>Can protect against disk failure, depending on the RAID level</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Disadvantages of RAID</h2>
+    <ul>
+      <li>Some RAID levels reduce usable capacity</li>
+      <li>Some RAID levels have slower write performance</li>
+      <li>Rebuild after a disk failure can take a long time</li>
+      <li>RAID does not replace backup</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>RAID Is Not a Backup</h2>
     <p>
-      RAID protects against hardware failure, but it does not protect against
-      accidental deletion, malware, ransomware, or disasters.
-      Always keep a separate backup of important data.
+      This is one of the most important things to understand.
+      RAID can protect against disk failure, but it does not protect against accidental deletion,
+      malware, ransomware, fire, theft, or other disasters.
+    </p>
+    <p>
+      If you delete a file from a RAID array, the file is still deleted.
+      That is why you should always keep a separate backup of important data.
     </p>
   </div>
 
   <div class="card">
-    <h2>Check RAID Capacity</h2>
+    <h2>Want to Check RAID Capacity?</h2>
     <p>
-      Usable RAID capacity depends on the RAID level, number of disks,
-      and disk size. To quickly calculate it, use the tool below.
+      Usable capacity changes depending on the RAID level, the number of disks, and the size of each disk.
+      If you want to understand the formulas in more detail, read:
+    </p>
+    <p>
+      <a href="raid-capacity.html"><strong>RAID Capacity Calculation Guide</strong></a>
+    </p>
+    <p>
+      If you want to calculate it instantly, use:
     </p>
     <p>
       <a href="tool.html"><strong>Use the RAID Capacity Calculator</strong></a>
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Want to Compare RAID 5 and RAID 6?</h2>
+    <p>
+      RAID 5 and RAID 6 are often compared for NAS and server use.
+      If you want a more detailed look at the difference between capacity efficiency and safety,
+      read this comparison:
+    </p>
+    <p>
+      <a href="raid5-vs-raid6.html"><strong>RAID 5 vs RAID 6</strong></a>
     </p>
   </div>
 

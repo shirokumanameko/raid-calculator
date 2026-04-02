@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RAID Capacity Calculator | RAID 0/1/5/6/10</title>
-  <meta name="description" content="Free RAID capacity calculator for RAID 0, 1, 5, 6, and 10. Enter disk count and size to instantly estimate usable capacity." />
+  <title>RAID Capacity Calculator | Free Tool for RAID 0, 1, 5, 6, and 10</title>
+  <meta name="description" content="Free RAID capacity calculator for RAID 0, RAID 1, RAID 5, RAID 6, and RAID 10. Enter the number of disks and disk size to estimate usable storage capacity instantly." />
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -14,19 +14,27 @@
   </p>
 
   <nav>
-    <a href="../index.html">日本語</a>
+    <a href="../index.html">Japanese</a>
     <a href="index.html">Home</a>
     <a href="tool.html">Calculator</a>
-    <a href="what-is-raid.html">What is RAID?</a>
+    <a href="what-is-raid.html">What Is RAID?</a>
   </nav>
 
   <h1>RAID Capacity Calculator</h1>
+
   <p>
     Enter the number of disks, disk size, and RAID level to quickly estimate
-    the usable storage capacity.
+    the usable capacity of your RAID array.
   </p>
 
-  <div class="card">
+  <p>
+    This free RAID calculator supports RAID 0, RAID 1, RAID 5, RAID 6, and RAID 10,
+    and is useful for planning NAS, server, and custom PC storage setups.
+  </p>
+
+  <div class="card-important">
+    <h2>Calculate RAID Capacity</h2>
+
     <label for="raidType">RAID Type</label>
     <select id="raidType">
       <option value="0">RAID 0</option>
@@ -48,40 +56,58 @@
     <div id="result" class="result" style="display:none;"></div>
 
     <div class="note">
-      * This is a simplified calculation assuming identical disk sizes.<br>
-      * Actual usable capacity may vary depending on filesystem and manufacturer definitions.
+      * This is a simplified estimate assuming identical disk sizes.<br>
+      * Actual usable capacity may vary slightly because of filesystem overhead and manufacturer definitions.
     </div>
   </div>
 
   <div class="card">
-    <h2>Quick RAID Overview</h2>
+    <h2>Quick RAID Capacity Overview</h2>
     <ul>
-      <li>RAID 0: No redundancy, maximum capacity</li>
-      <li>RAID 1: Mirroring, lower usable capacity</li>
-      <li>RAID 5: Uses one disk for parity</li>
-      <li>RAID 6: Uses two disks for parity</li>
-      <li>RAID 10: Combination of mirroring and striping (requires even number of disks)</li>
+      <li><strong>RAID 0:</strong> Uses the full capacity of all disks, but provides no redundancy</li>
+      <li><strong>RAID 1:</strong> Uses the capacity of one disk, because data is mirrored</li>
+      <li><strong>RAID 5:</strong> Uses the total minus one disk for parity</li>
+      <li><strong>RAID 6:</strong> Uses the total minus two disks for parity</li>
+      <li><strong>RAID 10:</strong> Uses half of the total raw capacity</li>
     </ul>
   </div>
 
   <div class="card">
-    <h2>Which RAID Should You Choose?</h2>
+    <h2>Example: Four 8TB Disks</h2>
+    <p>
+      Here is how usable capacity changes with the RAID level:
+    </p>
     <ul>
-      <li><strong>Maximize capacity:</strong> RAID 0</li>
-      <li><strong>High data safety:</strong> RAID 1 / RAID 6</li>
-      <li><strong>Balanced option:</strong> RAID 5</li>
-      <li><strong>Performance + safety:</strong> RAID 10</li>
+      <li><strong>RAID 0:</strong> 32TB</li>
+      <li><strong>RAID 1:</strong> 8TB</li>
+      <li><strong>RAID 5:</strong> 24TB</li>
+      <li><strong>RAID 6:</strong> 16TB</li>
+      <li><strong>RAID 10:</strong> 16TB</li>
     </ul>
+  </div>
+
+  <div class="card">
+    <h2>Which RAID Level Should You Choose?</h2>
+    <ul>
+      <li><strong>Maximize usable capacity:</strong> RAID 0 or RAID 5</li>
+      <li><strong>Prioritize safety:</strong> RAID 1 or RAID 6</li>
+      <li><strong>Balanced option:</strong> RAID 5</li>
+      <li><strong>Performance and redundancy:</strong> RAID 10</li>
+    </ul>
+    <p>
+      The best RAID level depends on what matters more in your setup:
+      storage efficiency, fault tolerance, or performance.
+    </p>
   </div>
 
   <div class="card">
     <h2>How RAID Capacity Is Calculated</h2>
     <p>
-      Usable capacity depends on the RAID level:
+      Usable RAID capacity depends on the RAID level:
     </p>
 
     <ul>
-      <li><strong>RAID 0:</strong> Total of all disks</li>
+      <li><strong>RAID 0:</strong> Number of disks × disk size</li>
       <li><strong>RAID 1:</strong> Capacity of one disk</li>
       <li><strong>RAID 5:</strong> (Number of disks - 1) × disk size</li>
       <li><strong>RAID 6:</strong> (Number of disks - 2) × disk size</li>
@@ -94,20 +120,29 @@
   </div>
 
   <div class="card">
-    <h2>Learn More About RAID</h2>
+    <h2>RAID Is Not a Backup</h2>
     <p>
-      Want to understand RAID concepts in more detail?
-      Read our <a href="what-is-raid.html">What is RAID?</a> guide.
+      RAID can improve fault tolerance against disk failure,
+      but it does not protect your data from accidental deletion,
+      malware, ransomware, or disasters.
+    </p>
+    <p>
+      Important data should always be backed up separately.
     </p>
   </div>
 
+  <div class="highlight-box">
+    <a href="raid-capacity.html">Learn How RAID Capacity Works →</a>
+  </div>
+
   <div class="card">
-    <h2>RAID Is Not a Backup</h2>
-    <p>
-      RAID improves fault tolerance against disk failures, but it does not protect
-      against accidental deletion, malware, ransomware, or disasters.
-      Always keep a separate backup of important data.
-    </p>
+    <h2>Learn More About RAID</h2>
+    <ul>
+      <li><a href="what-is-raid.html">What Is RAID?</a></li>
+      <li><a href="raid-capacity.html">RAID Capacity Calculation Guide</a></li>
+      <li><a href="raid5-vs-raid6.html">RAID 5 vs RAID 6</a></li>
+      <li><a href="best-raid-for-nas.html">Best RAID for NAS</a></li>
+    </ul>
   </div>
 
   <p>
@@ -156,16 +191,14 @@
         usable = (diskCount - 2) * diskSize;
       } else if (raidType === "10") {
         if (diskCount < 4 || diskCount % 2 !== 0) {
-          messageEl.textContent = "RAID 10 requires at least 4 disks (even number).";
+          messageEl.textContent = "RAID 10 requires at least 4 disks and an even number of drives.";
           return;
         }
         usable = (diskCount / 2) * diskSize;
       }
 
       resultEl.style.display = "block";
-      resultEl.innerHTML = `
-        Estimated usable capacity: <strong>${usable.toFixed(2)} TB</strong>
-      `;
+      resultEl.innerHTML = `Estimated usable capacity: <strong>${usable.toFixed(2)} TB</strong>`;
     }
   </script>
 
